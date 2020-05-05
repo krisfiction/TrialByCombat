@@ -8,7 +8,8 @@ namespace TrialByCombat
         {  
             Console.WriteLine();
             Console.WriteLine("********************************************************************************");
-            Console.WriteLine(Player.Name + ", HP " + Player.HP + ", Gold: " + Player.Gold + "\t\t\t\t" + Monster.Name + ", HP " + Monster.HP);
+            Console.WriteLine(Player.Name + "\t HP " + Player.HP + "\tMagic Shield: " + Player.Shield + "\t\t" + Monster.Name + ", HP " + Monster.HP);
+            Console.WriteLine("Chest: " + Player.ChestName + " +" + Player.ChestArmorBonus + "\t" + "Back: " + Player.BackName + " +" + Player.BackArmorBonus + "\tGold: " + Player.Gold);
             Console.WriteLine("********************************************************************************");
             Console.WriteLine();
         }

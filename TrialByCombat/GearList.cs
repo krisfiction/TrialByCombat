@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TrialByCombat
+{
+    class GearList
+    {
+        public void GetGear(string theslot)
+        {
+            string theSlot = theslot;
+
+
+            string[] geartype = new string[5];
+            geartype[0] = "padding";
+            geartype[1] = "leather";
+            geartype[2] = "studded leather";
+            geartype[3] = "chain mail";
+            geartype[4] = "plate";
+
+
+
+            var rand = new Random();
+            int xx = rand.Next(5);
+            int yy = rand.Next(5);
+
+            string xname = geartype[xx];
+
+            //string xcost = "1";
+            int xcost = 1;
+            //string xweight = "2";
+            int xweight = 2;
+            int xarmorBonus = yy + 1;
+
+
+
+
+
+            switch (theSlot)
+            {
+                case "back":
+                    if (xarmorBonus > Player.BackArmorBonus)
+                    {
+
+
+                        Player.BackName = xname;
+                        Player.BackArmorBonus = xarmorBonus;
+                        Player.BackWeight = xweight;
+                        Player.BackCost = xcost;
+
+
+                        Console.WriteLine("the " + Player.BackName + " " + theSlot + " +" + Player.BackArmorBonus + " costs " + Player.BackArmorBonus + " gold and weighs " + Player.BackWeight + " pounds");
+                    }
+
+
+
+
+                    /*
+                    Gear back = new Gear
+                    {
+                        Cost = Convert.ToInt32(xcost),
+                        Name = xname,
+                        Weight = Convert.ToInt32(xweight),
+                        ArmorBonus = xarmorBonus
+                    };
+                    Console.WriteLine("the " + back.Name + " " + theSlot + " +" + back.ArmorBonus + " costs " + back.Cost + " gold and weighs " + back.Weight + " pounds");
+                    */
+                    break;
+
+                case "chest":
+                    if (xarmorBonus > Player.ChestArmorBonus)
+                    {
+                        Player.ChestName = xname;
+                        Player.ChestArmorBonus = xarmorBonus;
+                        Player.ChestWeight = xweight;
+                        Player.ChestCost = xcost;
+
+
+                        Console.WriteLine("the " + Player.ChestName + " " + theSlot + " +" + Player.ChestArmorBonus + " costs " + Player.ChestArmorBonus + " gold and weighs " + Player.ChestWeight + " pounds");
+                    }
+                    /*
+                    Gear chest = new Gear
+                    {
+                        Cost = Convert.ToInt32(xcost),
+                        Name = xname,
+                        Weight = Convert.ToInt32(xweight),
+                        ArmorBonus = xarmorBonus
+                    };
+                    Console.WriteLine("SLOT: " + theSlot + ", the " + chest.Name + " +" + chest.ArmorBonus + " costs " + chest.Cost + " gold and weighs " + chest.Weight + " pounds");
+                    */
+                    break;
+            }
+
+            //Console.WriteLine("the " + back.Name + " +" + back.ArmorBonus + " costs " + back.Cost + " gold and weighs " + back.Weight + " pounds");
+
+            //Console.WriteLine(theSlot);
+        }
+    }
+}

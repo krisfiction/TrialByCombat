@@ -38,8 +38,21 @@ namespace TrialByCombat
             Monster.Damage = Variables.Total;
 
             Console.WriteLine("The " + Monster.Name + " strikes back rolling a " + Monster.DamageRoll + " doing " + Monster.Damage + " damage");
-            Console.WriteLine();
-            Player.HP -= Monster.Damage;
+  
+          
+            if (Player.Shield > Monster.Damage)
+            {
+                Player.Shield -= Monster.Damage;
+            }
+            else
+            if (Monster.Damage > (Player.ChestArmorBonus + Player.BackArmorBonus))
+            {
+                Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.BackArmorBonus));
+
+                Player.Shield = 0;
+            }
+
+
 
             //game over code - probably needs moved or a seperate function
 

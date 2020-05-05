@@ -46,10 +46,18 @@ namespace TrialByCombat
         public static int INT { get; set; } = 10;
 
 
-        public static string Back { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
+        public static string BackName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
+        public static int BackCost { get; set; } = 0;
+        public static int BackWeight { get; set; } = 0;
+        public static int BackArmorBonus { get; set; } = 0;
 
 
+        public static string ChestName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
+        public static int ChestCost { get; set; } = 0;
+        public static int ChestWeight { get; set; } = 0;
+        public static int ChestArmorBonus { get; set; } = 0;
 
+        public static int Shield { get; set; } = 0;
         /* 
          * name
          * race

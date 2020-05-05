@@ -6,9 +6,9 @@ namespace TrialByCombat.Potions
     {
         public static void Shield()
         {
-            Player.HP += 50;
+            Player.Shield += 50;
             Console.WriteLine();
-            Console.WriteLine("you have used a 50hp heal potion, you are now at " + Player.HP + "hp");
+            Console.WriteLine("you cast Magic Shield, currently protecting you from " + Player.Shield + " damage");
             Console.WriteLine();
         }
     }
