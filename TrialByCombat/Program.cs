@@ -1,5 +1,5 @@
 ﻿using System;
-using TrialByCombat.Potions;
+using TrialByCombat.Scrolls;
 
 namespace TrialByCombat
 {
@@ -11,6 +11,9 @@ namespace TrialByCombat
 
             Console.WriteLine("Welcome to the Trial By Combat! How long will you survive?");
             Console.WriteLine();
+            Console.WriteLine("What is your name?");
+            Player.Name = Console.ReadLine();
+            Console.Clear();
 
             StartGame();
 
@@ -69,22 +72,32 @@ namespace TrialByCombat
             Combat combat = new Combat();
             while (0 < Monster.HP)
             {
+               
+                //move to seperate method Combat.Menu() ??
+                Console.WriteLine("Combat Menu:");
+                Console.WriteLine("a) Attack");
+                Console.WriteLine("p) 60% Heal Potion\t\t\t" + Potion.HealPotionCount + " available");
+                Console.WriteLine("s) Magic Shield Scroll (50 points)\t" + Scroll.MagicShieldScrollCount + " available");
                 Console.WriteLine();
-                Console.WriteLine("Press 'a' to attack. or press 'p' to use a 25% heal potion. or press 's for a 50 point shield");
+                Console.WriteLine("c) Display Character Sheet");
 
 
 
                 ConsoleKey aInput = Console.ReadKey().Key;
+                if (aInput == ConsoleKey.Escape)
+                    Environment.Exit(0);
                 if (aInput == ConsoleKey.A)
                     combat.Start();
                 if (aInput == ConsoleKey.P)
                     Potion.Heal();
                 if (aInput == ConsoleKey.S)
-                    Potion.Shield(); //not real just a 50hp heal
+                    Scroll.MagicShield();
+                if (aInput == ConsoleKey.C)
+                    CharacterSheet.Display();
             }
             Player.Gold += Monster.Gold;
 
-//
+
             Random random = new Random();
             //int x = random.Next(1, 10);
             int x = 1; //auto gear for testing
@@ -92,7 +105,7 @@ namespace TrialByCombat
 
 
             string[] gearslot = new string[2];
-            gearslot[0] = "back";
+            gearslot[0] = "head";
             gearslot[1] = "chest";
 
 
@@ -106,7 +119,7 @@ namespace TrialByCombat
             {
                 Console.WriteLine("no loot!");
             }
-//
+
 
             Console.WriteLine();
             Console.WriteLine("you have slain the " + Monster.Name);
@@ -114,30 +127,5 @@ namespace TrialByCombat
             Console.WriteLine();
 
         }
-
-
-
-
-        static void DisplayPlayerStats() //currently not used
-        {
-            Console.WriteLine("Name: " + Player.Name);
-            Console.WriteLine("Hit Points: " + Player.HP);
-            Console.WriteLine("Armor Class: " + Player.AC);
-
-            Console.WriteLine("Strength: " + Player.STR);
-            Console.WriteLine("Intellect: " + Player.INT);
-
-            Console.WriteLine("Monster Name: " + Monster.Name);
-            Console.WriteLine("Monster Hit Points: " + Monster.HP);
-            Console.WriteLine("Monster Armor Class: " + Monster.AC);
-
-
-        }
-
-
-
-
-
-
     }
 }

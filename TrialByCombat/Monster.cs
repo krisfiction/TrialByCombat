@@ -32,6 +32,8 @@ namespace TrialByCombat
         */
         public static int HP { get; set; } = 10;
 
+        public static int HPmax { get; set; } = 10;
+
         public static int MANA { get; set; } = 10;
 
         public static int AC { get; set; } = 10;
@@ -127,6 +129,7 @@ namespace TrialByCombat
             DiceRoller diceRoller = new DiceRoller();
             diceRoller.Start(yhealth);
             HP = Variables.Total;
+            HPmax = HP;
 
             //diceRoller.Start(ydamageRoll);
             //Damage = Variables.Total;

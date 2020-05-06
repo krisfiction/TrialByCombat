@@ -45,9 +45,9 @@ namespace TrialByCombat
                 Player.Shield -= Monster.Damage;
             }
             else
-            if (Monster.Damage > (Player.ChestArmorBonus + Player.BackArmorBonus))
+            if (Monster.Damage > (Player.ChestArmorBonus + Player.HeadArmorBonus))
             {
-                Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.BackArmorBonus));
+                Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.HeadArmorBonus));
 
                 Player.Shield = 0;
             }

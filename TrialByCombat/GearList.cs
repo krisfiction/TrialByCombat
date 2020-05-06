@@ -38,18 +38,18 @@ namespace TrialByCombat
 
             switch (theSlot)
             {
-                case "back":
-                    if (xarmorBonus > Player.BackArmorBonus)
+                case "head":
+                    if (xarmorBonus > Player.HeadArmorBonus)
                     {
 
 
-                        Player.BackName = xname;
-                        Player.BackArmorBonus = xarmorBonus;
-                        Player.BackWeight = xweight;
-                        Player.BackCost = xcost;
+                        Player.HeadName = xname;
+                        Player.HeadArmorBonus = xarmorBonus;
+                        Player.HeadWeight = xweight;
+                        Player.HeadCost = xcost;
 
 
-                        Console.WriteLine("the " + Player.BackName + " " + theSlot + " +" + Player.BackArmorBonus + " costs " + Player.BackArmorBonus + " gold and weighs " + Player.BackWeight + " pounds");
+                        Console.WriteLine("the " + Player.HeadName + " " + theSlot + " +" + Player.HeadArmorBonus + " costs " + Player.HeadArmorBonus + " gold and weighs " + Player.HeadWeight + " pounds");
                     }
 
 
