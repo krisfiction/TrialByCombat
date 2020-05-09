@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TrialByCombat.Scrolls
+namespace TrialByCombat.Potions
 {
     public partial class Potion
     {
@@ -17,12 +17,11 @@ namespace TrialByCombat.Scrolls
             }
             else
                 if (HealPotionCount >= 1) // if you have potions available
-            {
+                {
                     HealPotionCount -= 1;
                     int oldHP = Player.HP;
-                   // Player.HP += Convert.ToInt32((Player.HPmax / 100) * 60); // Convert.ToInt32 to prevent half numbers like 59.3 hp
-                                                                             //Player.HP += (Player.HPmax / 100) * 60; //60% based on max hp
-                    int tooHeal = Convert.ToInt32((Player.HPmax / 100) * 60);
+                   
+                    int tooHeal = Convert.ToInt32((Player.HPmax / 100) * 60); // Convert.ToInt32 to prevent half numbers like 59.3 hp
 
                 if ((Player.HP + tooHeal) > Player.HPmax) // if the potion will heal over max hp
                 {
@@ -48,19 +47,3 @@ namespace TrialByCombat.Scrolls
         }
     }
 }
-/*
-https://diablo.fandom.com/wiki/Healing_Potions
-
-Minor Health Potion
-Lesser Health Potion
-Health Potion
-Greater Health Potion
-Major Health Potion
-Super Health Potion
-Heroic Health Potion
-Resplendent Health Potion
-Runic Health Potion
-Mythic Health Potion
-
-10 potions - use at 10% each 
-*/

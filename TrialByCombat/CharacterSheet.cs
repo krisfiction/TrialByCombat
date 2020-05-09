@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TrialByCombat.Scrolls;
+using TrialByCombat.Potions;
 
 namespace TrialByCombat
 {
@@ -38,3 +39,4 @@ namespace TrialByCombat
         }
     }
 }
+ 

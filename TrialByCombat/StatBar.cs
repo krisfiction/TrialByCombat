@@ -6,21 +6,25 @@ namespace TrialByCombat
     {
         public static void DisplayStatBar()
         {
+            Console.ForegroundColor = ConsoleColor.Blue; // makes text blue - may be removed
+
             Console.WriteLine();
             Console.WriteLine("********************************************************************************");
-            //Console.WriteLine("{0,-10}{1,-4}{2,-5}{3,-15}{4,-5}{5,20}{6,5}{7,5}", Player.Name, "HP:", Player.HP, "Magic Shield:", Player.Shield, Monster.Name, "HP:", Monster.HP);
+            
+            //this needs work if it is going to be used
+            //Console.WriteLine("{0,-10}{1,-4}{2,-5}{3,-15}{4,-5}{5,20}{6,5}", Player.Name, "HP:", Player.HP, "Magic Shield:", Player.Shield, "Armor Bonus:", (Player.ChestArmorBonus + Player.HeadArmorBonus));
+            
             Console.WriteLine(Player.Name + "\tHP " + Player.HP + "/" + Player.HPmax + "\tMagic Shield: " + Player.Shield + "\t\tArmor Bonus: " + (Player.ChestArmorBonus + Player.HeadArmorBonus));
             Console.WriteLine(Monster.Name + "\tHP " + Monster.HP + "/" + Monster.HPmax);
-            
-            
-            //Console.WriteLine("Chest: " + Player.ChestName + " +" + Player.ChestArmorBonus + "\t\t" + "Head: " + Player.HeadName + " +" + Player.HeadArmorBonus + "\tGold: " + Player.Gold);
-
             Console.WriteLine("********************************************************************************");
             Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
-/* maybe create a display method / buffer thingy
+/* 
+ * maybe create a display method / buffer thingy
  * 
  * WL(input); // this will call Console.Writeline() and save last 25 lines
  * 

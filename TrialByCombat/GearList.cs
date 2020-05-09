@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TrialByCombat
 {
@@ -35,21 +33,20 @@ namespace TrialByCombat
 
 
 
-
+            // move to EquipGear() ??
             switch (theSlot)
             {
                 case "head":
-                    if (xarmorBonus > Player.HeadArmorBonus)
+                    if (xarmorBonus > Player.HeadArmorBonus) // if armor bonus is bigger then it is a upgrade
                     {
-
-
                         Player.HeadName = xname;
                         Player.HeadArmorBonus = xarmorBonus;
                         Player.HeadWeight = xweight;
                         Player.HeadCost = xcost;
 
+                        //Console.WriteLine("you recieve a " + Player.HeadName + " " + theSlot + " +" + Player.HeadArmorBonus + " costs " + Player.HeadArmorBonus + " gold and weighs " + Player.HeadWeight + " pounds");
+                        Console.WriteLine("you recieve a " + Player.HeadName + " helmet +" + Player.HeadArmorBonus);
 
-                        Console.WriteLine("the " + Player.HeadName + " " + theSlot + " +" + Player.HeadArmorBonus + " costs " + Player.HeadArmorBonus + " gold and weighs " + Player.HeadWeight + " pounds");
                     }
 
 
@@ -75,8 +72,7 @@ namespace TrialByCombat
                         Player.ChestWeight = xweight;
                         Player.ChestCost = xcost;
 
-
-                        Console.WriteLine("the " + Player.ChestName + " " + theSlot + " +" + Player.ChestArmorBonus + " costs " + Player.ChestArmorBonus + " gold and weighs " + Player.ChestWeight + " pounds");
+                        Console.WriteLine("you recieve a " + Player.ChestName + " chest +" + Player.ChestArmorBonus + " costs " + Player.ChestArmorBonus);
                     }
                     /*
                     Gear chest = new Gear

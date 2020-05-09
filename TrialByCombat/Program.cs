@@ -1,5 +1,6 @@
 ﻿using System;
 using TrialByCombat.Scrolls;
+using TrialByCombat.Potions;
 
 namespace TrialByCombat
 {
@@ -7,13 +8,18 @@ namespace TrialByCombat
     {
         static void Main(string[] args)
         {
-            Player.HP = 100; //reset
-
             Console.WriteLine("Welcome to the Trial By Combat! How long will you survive?");
             Console.WriteLine();
+
+            // disabled to speed up test runs
+            
             Console.WriteLine("What is your name?");
             Player.Name = Console.ReadLine();
             Console.Clear();
+            
+
+            Weapons weapons = new Weapons();
+            weapons.GetWeapon();
 
             StartGame();
 
@@ -46,6 +52,7 @@ namespace TrialByCombat
             //_ = new Player();
             // _ = new Monster();
 
+
             Monster ymonsters = new Monster();
             ymonsters.GetMonster();
             
@@ -59,14 +66,6 @@ namespace TrialByCombat
 
             //StatBar statbar = new StatBar(); //is it needed ??
             StatBar.DisplayStatBar();
-
-
-
-            //randomly equip a weapon and use its stats for this test
-
-
-            Weapons weapons = new Weapons();
-            weapons.GetWeapon();
             
 
             Combat combat = new Combat();
@@ -95,36 +94,54 @@ namespace TrialByCombat
                 if (aInput == ConsoleKey.C)
                     CharacterSheet.Display();
             }
+
+
+
+
+
+            // #START loot code
             Player.Gold += Monster.Gold;
-
-
-            Random random = new Random();
-            //int x = random.Next(1, 10);
-            int x = 1; //auto gear for testing
-            int y = random.Next(0, 2); //returns 0, 1 - low number, top number (+ 1)
-
-
-            string[] gearslot = new string[2];
-            gearslot[0] = "head";
-            gearslot[1] = "chest";
-
-
-            if (x == 1)
-            {
-                GearList gearList = new GearList();
-                gearList.GetGear(gearslot[y]);
-
-            }
-            else
-            {
-                Console.WriteLine("no loot!");
-            }
-
 
             Console.WriteLine();
             Console.WriteLine("you have slain the " + Monster.Name);
             Console.WriteLine("you recieve " + Monster.Gold + " gold, with a total of " + Player.Gold);
             Console.WriteLine();
+
+            Random random = new Random();
+            int getLoot = random.Next(0, 10); // should roll 0 through 9, giving 10 chances
+            if (getLoot == 0)
+            {
+                Console.WriteLine("you get a potion"); // potion count code here
+                Potion.HealPotionCount += 1;
+            }
+            else if (getLoot == 1)
+            {
+                Console.WriteLine("you get a scroll"); // scroll count code here
+                Scroll.MagicShieldScrollCount += 1;
+            }
+            else if (getLoot == 2 | getLoot == 3 | getLoot == 4) // 2, 3 or 4 - 30% chance
+            {
+                Console.WriteLine("you get gear"); // gear code here - move current gear code into these {} 
+
+                
+                int y = random.Next(0, 2); //returns 0, 1 - low number, top number + 1
+
+                string[] gearslot = new string[2];
+                gearslot[0] = "head";
+                gearslot[1] = "chest";
+
+
+                GearList gearList = new GearList();
+                gearList.GetGear(gearslot[y]);
+
+                
+            }
+            else
+            {
+                Console.WriteLine("you get nothing");
+            }
+            // #END loot code
+            
 
         }
     }

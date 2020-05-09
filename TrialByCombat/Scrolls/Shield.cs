@@ -29,5 +29,6 @@ namespace TrialByCombat.Scrolls
     }
 }
 
+//attack of opportunity
 //add monster attack after reading scroll ??
 //scroll take a turn vs potion and attack being 1 turn ??
