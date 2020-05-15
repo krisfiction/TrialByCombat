@@ -10,15 +10,8 @@ namespace TrialByCombat
             Console.WriteLine("Combat started");
             Console.WriteLine();
 
-            //Console.WriteLine(Player.Name + ", HP " + Player.HP + " - " + Monster.Name + ", HP " + Monster.HP);
-
             DamageDone();
 
-            //Console.WriteLine(Player.Name + ", HP " + Player.HP + " - " + Monster.Name + ", HP " + Monster.HP);
-
-            //StatBar statbar = new StatBar();
-            //statbar.DisplayStatBar();
-            StatBar.DisplayStatBar();
         }
 
 
@@ -30,27 +23,13 @@ namespace TrialByCombat
             Console.WriteLine("Using your " + Variables.weaponName + ", rolling a " + Variables.weaponDmg + ", you do " + Variables.Total + " damage");
             Console.WriteLine();
 
-            //Monster.HP = Monster.HP - Variables.Total;
             Monster.HP -= Variables.Total;
 
 
-            diceRoller.Start(Monster.DamageRoll); //change to monster.weapon or monster.attack ??
-            Monster.Damage = Variables.Total;
 
-            Console.WriteLine("The " + Monster.Name + " strikes back rolling a " + Monster.DamageRoll + " doing " + Monster.Damage + " damage");
-  
-          
-            if (Player.Shield > Monster.Damage)
-            {
-                Player.Shield -= Monster.Damage;
-            }
-            else
-            if (Monster.Damage > (Player.ChestArmorBonus + Player.HeadArmorBonus))
-            {
-                Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.HeadArmorBonus));
+            MonsterAttack();
 
-                Player.Shield = 0;
-            }
+
 
 
 
@@ -76,5 +55,31 @@ namespace TrialByCombat
 
             }
         }
+
+        public void MonsterAttack()
+        {
+            DiceRoller diceRoller = new DiceRoller();
+
+            diceRoller.Start(Monster.DamageRoll);
+            Monster.Damage = Variables.Total;
+
+            Console.WriteLine("The " + Monster.Name + " strikes back rolling a " + Monster.DamageRoll + " doing " + Monster.Damage + " damage");
+
+
+            if (Player.Shield > Monster.Damage)
+            {
+                Player.Shield -= Monster.Damage;
+            }
+            else
+            if (Monster.Damage > (Player.ChestArmorBonus + Player.HeadArmorBonus))
+            {
+                Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.HeadArmorBonus));
+
+                Player.Shield = 0;
+            }
+        }
+
+
+
     }
 }

@@ -4,7 +4,7 @@ using TrialByCombat.Potions;
 
 namespace TrialByCombat
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -12,11 +12,11 @@ namespace TrialByCombat
             Console.WriteLine();
 
             // disabled to speed up test runs
-            
+
             Console.WriteLine("What is your name?");
             Player.Name = Console.ReadLine();
             Console.Clear();
-            
+
 
             Weapons weapons = new Weapons();
             weapons.GetWeapon();
@@ -64,22 +64,21 @@ namespace TrialByCombat
             //Console.WriteLine(Player.Name + ", HP " + Player.HP + ", Gold: " + Player.Gold + " - " + Monster.Name + ", HP " + Monster.HP);
             Console.WriteLine();
 
-            //StatBar statbar = new StatBar(); //is it needed ??
-            StatBar.DisplayStatBar();
             
 
             Combat combat = new Combat();
             while (0 < Monster.HP)
             {
-               
+                StatBar.DisplayStatBar();
+
                 //move to seperate method Combat.Menu() ??
                 Console.WriteLine("Combat Menu:");
                 Console.WriteLine("a) Attack");
                 Console.WriteLine("p) 60% Heal Potion\t\t\t" + Potion.HealPotionCount + " available");
                 Console.WriteLine("s) Magic Shield Scroll (50 points)\t" + Scroll.MagicShieldScrollCount + " available");
+                Console.WriteLine("d) Death Scroll (10 points)\t" + Scroll.DeathScrollCount + " available");
                 Console.WriteLine();
                 Console.WriteLine("c) Display Character Sheet");
-
 
 
                 ConsoleKey aInput = Console.ReadKey().Key;
@@ -93,6 +92,11 @@ namespace TrialByCombat
                     Scroll.MagicShield();
                 if (aInput == ConsoleKey.C)
                     CharacterSheet.Display();
+                if (aInput == ConsoleKey.D)
+                {
+                    Scroll.Death();
+                    combat.MonsterAttack();
+                }
             }
 
 

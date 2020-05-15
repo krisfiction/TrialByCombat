@@ -16,7 +16,8 @@ namespace TrialByCombat
             
             Console.WriteLine(Player.Name + "\tHP " + Player.HP + "/" + Player.HPmax + "\tMagic Shield: " + Player.Shield + "\t\tArmor Bonus: " + (Player.ChestArmorBonus + Player.HeadArmorBonus));
             Console.WriteLine(Monster.Name + "\tHP " + Monster.HP + "/" + Monster.HPmax);
-            Console.WriteLine("********************************************************************************");
+            //Console.WriteLine("********************************************************************************");
+            Console.WriteLine(("").PadRight(80, '*'));
             Console.WriteLine();
 
             Console.ForegroundColor = ConsoleColor.White;

@@ -99,13 +99,13 @@ namespace TrialByCombat
 
             JObject weapons = JObject.Parse(weaponList);
             // orginal code for random weapon each fight
-            /*
-            var rand = new Random();
-            int xx = rand.Next(10); // provides 10 numbers 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+            
+            //var rand = new Random();
+            //int xx = rand.Next(10); // provides 10 numbers 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-            string xname = (string)weapons["weapons"][xx]["name"];
-            string xdamage = (string)weapons["weapons"][xx]["damage"];
-            */
+            //string xname = (string)weapons["weapons"][xx]["name"];
+            //string xdamage = (string)weapons["weapons"][xx]["damage"];
+            
 
 
             
