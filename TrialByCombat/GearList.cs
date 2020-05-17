@@ -73,6 +73,8 @@ namespace TrialByCombat
                         Player.ChestCost = xcost;
 
                         Console.WriteLine("you recieve a " + Player.ChestName + " chest +" + Player.ChestArmorBonus + " costs " + Player.ChestArmorBonus);
+
+                      
                     }
                     /*
                     Gear chest = new Gear

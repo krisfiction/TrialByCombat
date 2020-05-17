@@ -58,28 +58,27 @@ namespace TrialByCombat
 
         public void MonsterAttack()
         {
-            DiceRoller diceRoller = new DiceRoller();
-
-            diceRoller.Start(Monster.DamageRoll);
-            Monster.Damage = Variables.Total;
-
-            Console.WriteLine("The " + Monster.Name + " strikes back rolling a " + Monster.DamageRoll + " doing " + Monster.Damage + " damage");
-
-
-            if (Player.Shield > Monster.Damage)
+            if (Monster.HP > 0)
             {
-                Player.Shield -= Monster.Damage;
-            }
-            else
-            if (Monster.Damage > (Player.ChestArmorBonus + Player.HeadArmorBonus))
-            {
-                Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.HeadArmorBonus));
+                DiceRoller diceRoller = new DiceRoller();
 
-                Player.Shield = 0;
+                diceRoller.Start(Monster.DamageRoll);
+                Monster.Damage = Variables.Total;
+
+                Console.WriteLine("The " + Monster.Name + " strikes back rolling a " + Monster.DamageRoll + " doing " + Monster.Damage + " damage");
+
+                if (Player.Shield > Monster.Damage)
+                {
+                    Player.Shield -= Monster.Damage;
+                }
+                else
+                if (Monster.Damage > (Player.ChestArmorBonus + Player.HeadArmorBonus))
+                {
+                    Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.HeadArmorBonus));
+
+                    Player.Shield = 0;
+                }
             }
         }
-
-
-
     }
 }

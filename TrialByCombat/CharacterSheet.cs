@@ -24,7 +24,7 @@ namespace TrialByCombat
             Console.WriteLine("Chest: " + Player.ChestName + " +" + Player.ChestArmorBonus);
             Console.WriteLine();
             Console.WriteLine("Inventory:");
-            Console.WriteLine("Heal Potions: " + Potion.HealPotionCount);
+            Console.WriteLine("Heal Potions: " + HealthPotion.Quantity);
             Console.WriteLine("Macgic Shield Scrolls: " + Scroll.MagicShieldScrollCount);
 
 
