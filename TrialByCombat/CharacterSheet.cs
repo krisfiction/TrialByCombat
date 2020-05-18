@@ -6,7 +6,7 @@ using TrialByCombat.Potions;
 
 namespace TrialByCombat
 {
-    class CharacterSheet
+    static class CharacterSheet
     {
         public static void Display()
         {

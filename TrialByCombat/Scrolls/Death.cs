@@ -4,7 +4,7 @@ namespace TrialByCombat.Scrolls
 {
     public partial class Scroll
     {
-        public static int DeathScrollCount { get; set; } = 10;
+        public static int DeathScrollCount { get; set; } = 15;
 
         public static void Death()
         {

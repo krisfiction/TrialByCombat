@@ -99,7 +99,7 @@ namespace TrialByCombat
             }
 
             Console.WriteLine("you have slain the " + Monster.Name);
-            Loot.Generate();
+            Loot.GenerateArmor();
 
         }
     }
