@@ -23,18 +23,7 @@ namespace TrialByCombat.Armors
 
             ArmorLow = 2;
             ArmorHigh = 6;
-            ArmorClass = Armor.ArmorRoll(ArmorLow, ArmorHigh);  //ArmorRoll();
+            ArmorClass = Armor.ArmorRoll(ArmorLow, ArmorHigh);
         }
-
-        //private int ArmorRoll()
-        //{
-        //    Random rand = new Random();
-        //    return rand.Next(ArmorLow, ArmorHigh + 1);
-        //}
-
-        //public void AddToInventory()
-        //{
-        //    Inventory.Inventories.Add(new Inventory(Type, Name, Description, Slot, Gold, PrefixName, PrefixStat, PrefixValue, SuffixName, SuffixStat, SuffixValue, ArmorClass));
-        //}
     }
 }

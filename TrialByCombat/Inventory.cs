@@ -119,7 +119,19 @@ namespace TrialByCombat
                 }else
                 if (Inventories[i]._type == "Armor")
                 {
-                    Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10} {Inventories[i]._prefixName + " " + Inventories[i]._name + " of the " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
+                    //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10} {Inventories[i]._prefixName + " " + Inventories[i]._name + " of the " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
+
+
+                    //todo better formating for display
+                    //todo two lines
+                    //todo 1) CHEST     Godly Rags of The Whale
+                    //todo         Armor: 6     Health: 20          Gold: 25
+                    //todo or
+                    //todo 1) CHEST     Godly Rags of the Whale     AC: 6     HP: 20     G: 25
+                    Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}");
+                    Console.WriteLine($"{Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
+
+
                 }
                 else
                 {
@@ -163,6 +175,7 @@ namespace TrialByCombat
                 }
                 else
                 {
+                    // EquipItem() -- needs added - adds item to player
                     Inventories.RemoveAt(_number);
                 }
             }
@@ -170,19 +183,11 @@ namespace TrialByCombat
             {
                 Console.WriteLine("Invalid Number");
             }
-
-
-
-
-
-
-
         }
 
 
         public void Remove(int iTemp)
         {
-            //inventories.RemoveAt(int.Parse(temp)); // removes item from the list
             Inventories.RemoveAt(iTemp); // removes item from the list
         }
 
@@ -191,6 +196,7 @@ namespace TrialByCombat
         /*
         * drop on ground
         * equip 
+        * return to game
         */
             
     }
