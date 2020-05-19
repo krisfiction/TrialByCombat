@@ -28,11 +28,11 @@ namespace TrialByCombat
             Inventory.EquipStarterWeapon();
 
 
-           // testing
+            // testing
             //int f = 0;
             //do
             //{
-            //    //Generate.Weapon();
+            //    Generate.Weapon();
             //    Generate.Armor();
             //    f++;
             //} while (f < 25);

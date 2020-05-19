@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TrialByCombat.Weapons
 {
-    internal class greatSword : Weapon
+    internal class GreatSword : Weapon
     {
-        public greatSword(string pName, string pStat, int pValue, string sName, string sStat, int sValue)
+        public GreatSword(string pName, string pStat, int pValue, string sName, string sStat, int sValue)
         {
             Type = "Weapon";
             Name = "Great Sword";

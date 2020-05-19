@@ -34,8 +34,8 @@ namespace TrialByCombat
             (suffixName, suffixStat, suffixValue) = Suffix.Generate("Weapon");
 
 
-            //int _weaponType = random.Next(1, 11);
-            int _weaponType = 1;
+            int _weaponType = random.Next(1, 27); //26 weapons
+            //int _weaponType = 1;
             switch (_weaponType)
             {
                 case 1:
@@ -43,6 +43,103 @@ namespace TrialByCombat
                    // Console.WriteLine("prefixName: " + prefixName + ", prefixStat: " + prefixStat + ", prefixValue: " + prefixValue + ", suffixName: " + suffixName + ", suffixStat: " + suffixStat + ", suffixVallue: " + suffixValue);
                     axe.WeaponAddToInventory();
                     break;
+                case 2:
+                    BastardSword bastardSword = new BastardSword(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    bastardSword.WeaponAddToInventory();
+                    break;
+                case 3:
+                    BattleAxe battleAxe = new BattleAxe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    battleAxe.WeaponAddToInventory();
+                    break;
+                case 4:
+                    Blade blade = new Blade(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    blade.WeaponAddToInventory();
+                    break;
+                case 5:
+                    BroadAxe broadAxe = new BroadAxe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    broadAxe.WeaponAddToInventory();
+                    break;
+                case 6:
+                    BroadSword broadSword = new BroadSword(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    broadSword.WeaponAddToInventory();
+                    break;
+                case 7:
+                    Claymore claymore = new Claymore(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    claymore.WeaponAddToInventory();
+                    break;
+                case 8:
+                    Club club = new Club(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    club.WeaponAddToInventory();
+                    break;
+                case 9:
+                    Dagger dagger = new Dagger(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    dagger.WeaponAddToInventory();
+                    break;
+                case 10:
+                    Falchion falchion = new Falchion(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    falchion.WeaponAddToInventory();
+                    break;
+                case 11:
+                    Flail flail = new Flail(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    flail.WeaponAddToInventory();
+                    break;
+                case 12:
+                    GreatAxe greatAxe = new GreatAxe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    greatAxe.WeaponAddToInventory();
+                    break;
+                case 13:
+                    GreatSword greatSword = new GreatSword(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    greatSword.WeaponAddToInventory();
+                    break;
+                case 14:
+                    LargeAxe largeAxe = new LargeAxe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    largeAxe.WeaponAddToInventory();
+                    break;
+                case 15:
+                    LongSword longSword = new LongSword(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    longSword.WeaponAddToInventory();
+                    break;
+                case 16:
+                    Mace mace = new Mace(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    mace.WeaponAddToInventory();
+                    break;
+                case 17:
+                    Maul maul = new Maul(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    maul.WeaponAddToInventory();
+                    break;
+                case 19:
+                    MorningStar morningStar = new MorningStar(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    morningStar.WeaponAddToInventory();
+                    break;
+                case 20:
+                    Sabre sabre = new Sabre(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    sabre.WeaponAddToInventory();
+                    break;
+                case 21:
+                    Scimitar scimitar = new Scimitar(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    scimitar.WeaponAddToInventory();
+                    break;
+                case 22:
+                    ShortSword shortSword = new ShortSword(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    shortSword.WeaponAddToInventory();
+                    break;
+                case 23:
+                    SmallAxe smallAxe = new SmallAxe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    smallAxe.WeaponAddToInventory();
+                    break;
+                case 24:
+                    SpikedClub spikedClub = new SpikedClub(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    spikedClub.WeaponAddToInventory();
+                    break;
+                case 25:
+                    TwoHandedSword twoHandedSword = new TwoHandedSword(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    twoHandedSword.WeaponAddToInventory();
+                    break;
+                case 26:
+                    WarHammer warHammer = new WarHammer(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    warHammer.WeaponAddToInventory();
+                    break;
+
             }
         }
 
