@@ -6,7 +6,7 @@ using TrialByCombat.Potions;
 
 namespace TrialByCombat
 {
-    static class CharacterSheet
+    internal static class CharacterSheet
     {
         public static void Display()
         {
@@ -19,11 +19,13 @@ namespace TrialByCombat
             Console.WriteLine();
             Console.WriteLine("Gold: " + Player.Gold);
             Console.WriteLine();
+            Console.WriteLine("Weapon: " + Variables.weaponName + " " + Variables.weaponDamageLow + "-" + Variables.weaponDamageHigh);
+            Console.WriteLine();
             Console.WriteLine("Equipment:");
             Console.WriteLine("Head: " + Player.HeadName + " +" + Player.HeadArmorBonus);
             Console.WriteLine("Chest: " + Player.ChestName + " +" + Player.ChestArmorBonus);
             Console.WriteLine();
-            Console.WriteLine("Inventory:");
+            Console.WriteLine("Supplies:");
             Console.WriteLine("Heal Potions: " + HealthPotion.Quantity);
             Console.WriteLine("Macgic Shield Scrolls: " + Scroll.MagicShieldScrollCount);
 

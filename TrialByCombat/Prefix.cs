@@ -104,28 +104,27 @@ namespace TrialByCombat
             //get Value of that Stat
             //if Value fits Slot
             //assign prefix
+           
 
-            Initialize(); //moveed to game start up
-            
+            name = "";
+            statName = "";
+            value = 0;
+
             int i = random.Next(0,32); // random item from Prefixes list 
             if (Slot == "Armor" && Prefixes[i]._occurrence.Contains("A"))
             {
                 name = Prefixes[i]._name;
                 statName = Prefixes[i]._statName;
-                value = (random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh));
+                value = random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh);
             }
+
             if (Slot == "Weapon" && Prefixes[i]._occurrence.Contains("W"))
             {
                 name = Prefixes[i]._name;
                 statName = Prefixes[i]._statName;
-                value = (random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh));
+                value = random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh);
             }
-            else
-            { //fail safe - make game break - not sure why ???
-                //name = "FAIL";
-                //statName = "statFAIL";
-                //value = 88888;
-            }
+
             return (name, statName, value);
         }
     }

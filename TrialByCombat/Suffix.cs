@@ -79,29 +79,26 @@ namespace TrialByCombat
             //if Value fits Slot
             //assign Suffix
 
-           Initialize();
+            name = "";
+            statName = "";
+            value = 0;
 
             int i = random.Next(0, 10); // random item from Suffixes list
             if (Slot == "Armor" && Suffixes[i]._occurrence.Contains("A"))
             {
                 name = Suffixes[i]._name;
                 statName = Suffixes[i]._statName;
-                value = (random.Next(Suffixes[i]._valueLow, Suffixes[i]._valueHigh));
+                value = random.Next(Suffixes[i]._valueLow, Suffixes[i]._valueHigh);
             }
+
             if (Slot == "Weapon" && Suffixes[i]._occurrence.Contains("W"))
             {
                 name = Suffixes[i]._name;
                 statName = Suffixes[i]._statName;
-                value = (random.Next(Suffixes[i]._valueLow, Suffixes[i]._valueHigh));
+                value = random.Next(Suffixes[i]._valueLow, Suffixes[i]._valueHigh);
             }
-            else
-            //{
-            //name = "FAIL";
-            //statName = "statFAIL";
-            //value = 88888;
-            //}
+
             return (name, statName, value);
-            return default;
         }
     }
 }

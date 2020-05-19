@@ -40,6 +40,7 @@ namespace TrialByCombat
             {
                 case 1:
                     Axe axe = new Axe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                   // Console.WriteLine("prefixName: " + prefixName + ", prefixStat: " + prefixStat + ", prefixValue: " + prefixValue + ", suffixName: " + suffixName + ", suffixStat: " + suffixStat + ", suffixVallue: " + suffixValue);
                     axe.WeaponAddToInventory();
                     break;
             }
