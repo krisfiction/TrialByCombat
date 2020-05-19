@@ -42,8 +42,22 @@ namespace TrialByCombat
             {
                 //"name", "stat name", Value low, Value high, "occurence"
                
+                //Mana - 8 items
+                new Prefix("Hyena’s", "Mana", -25, -11, "TJ"),
+                new Prefix("Frog’s", "Mana", -10, -1, "TJ"),
+                new Prefix("Spider’s", "Mana", 10, 15, "TJ"),
+                new Prefix("Raven’s", "Mana", 15, 20, "TJ"),
+                new Prefix("Snake’s", "Mana", 21, 30, "TJ"),
+                new Prefix("Serpent’s", "Mana", 30, 40, "TJ"),
+                new Prefix("Drake’s", "Mana", 41, 50, "TJ"),
+                new Prefix("Dragon’s", "Mana", 51, 60, "TJ"),
+                
 
-                //Armor Class
+             
+                //Resist All
+
+
+                //Armor Class - 12 items
                 new Prefix("Vulnerable", "Armor Class", -100, -50, "AS"),
                 new Prefix("Rusted", "Armor Class", -50, -25, "AS"),
                 new Prefix("Fine", "Armor Class", 20, 30, "AS"),
@@ -55,7 +69,31 @@ namespace TrialByCombat
                 new Prefix("Saintly", "Armor Class", 111, 130, "AS"),
                 new Prefix("Awesome", "Armor Class", 131, 150, "AS"),
                 new Prefix("Holy", "Armor Class", 151, 170, "AS"),
-                new Prefix("Godly", "Armor Class", 171, 200, "AS")
+                new Prefix("Godly", "Armor Class", 171, 200, "AS"),
+
+
+                //Hit
+
+                
+                //Damage Done - 12 items
+                new Prefix("Useless", "Damage Done", -100, -70, "WB"),
+                new Prefix("Bent", "Damage Done", -75, -50, "WB"),
+                new Prefix("Weak", "Damage Done", -45, -25, "WB"),
+                new Prefix("Jagged", "Damage Done", 20, 35, "WB"),
+                new Prefix("Deadly", "Damage Done", 36, 50, "WB"),
+                new Prefix("Heavy", "Damage Done", 51, 65, "WB"),
+                new Prefix("Vicious", "Damage Done", 66, 80, "WB"),
+                new Prefix("Brutal", "Damage Done", 81, 95, "WB"),
+                new Prefix("Massive", "Damage Done", 96, 110, "WB"),
+                new Prefix("Savage", "Damage Done", 111, 125, "WB"),
+                new Prefix("Ruthless", "Damage Done", 126, 150, "WB"),
+                new Prefix("Merciless", "Damage Done", 151, 175, "WB")
+                
+
+                //Hit, Damage Done  (2 stats, WHAT DO!)
+
+
+
             };
         }
 
@@ -67,34 +105,26 @@ namespace TrialByCombat
             //if Value fits Slot
             //assign prefix
 
-            Initialize(); //move to game start up ??
-
-
-            //pick random item from Prefix[X] list
-            //assign propertys
-
-       
-
-
-
-            int i = random.Next(0,12); // random item from Prefixes list
-
-            //todo random item from prefix list here
+            Initialize(); //moveed to game start up
             
-            //todo do _valueLow, _valueHigh math --> assign to pValue
-
-
-            if (Slot == "Armor" & (Prefixes[i]._occurrence.Contains("A")))
+            int i = random.Next(0,32); // random item from Prefixes list 
+            if (Slot == "Armor" && Prefixes[i]._occurrence.Contains("A"))
             {
                 name = Prefixes[i]._name;
-                statName = "value";
+                statName = Prefixes[i]._statName;
+                value = (random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh));
+            }
+            if (Slot == "Weapon" && Prefixes[i]._occurrence.Contains("W"))
+            {
+                name = Prefixes[i]._name;
+                statName = Prefixes[i]._statName;
                 value = (random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh));
             }
             else
-            {
-                name = "FAIL";
-                statName = "value";
-                value = 3;
+            { //fail safe - make game break - not sure why ???
+                //name = "FAIL";
+                //statName = "statFAIL";
+                //value = 88888;
             }
             return (name, statName, value);
         }

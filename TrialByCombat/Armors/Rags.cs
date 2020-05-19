@@ -23,7 +23,7 @@ namespace TrialByCombat.Armors
 
             ArmorLow = 2;
             ArmorHigh = 6;
-            ArmorClass = Armor.ArmorRoll(ArmorLow, ArmorHigh);
+            ArmorClass = Roll(ArmorLow, ArmorHigh);
         }
     }
 }

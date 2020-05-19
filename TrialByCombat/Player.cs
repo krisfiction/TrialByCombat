@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TrialByCombat
 {
-    class Player
+    static class Player
     {
         /*
         //Player.Name

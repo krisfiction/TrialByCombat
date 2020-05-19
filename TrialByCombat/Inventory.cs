@@ -1,19 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 
 namespace TrialByCombat
 {
     public class Inventory
     {
-        //private string _name;
-        //private string _type;
-        //private string _slot;
-        //private int _gold;
-        private string _damage; //delete
-        private string _info; //delete
-
         //Items
         private string _type;
         private string _name;
@@ -32,7 +23,15 @@ namespace TrialByCombat
         //Armor
         private int _armorClass;
 
+        //Weapons
+        private int _damageLow;
+        private int _damageHigh;
+
         public static List<Inventory> Inventories { get; set; }
+
+        public Inventory()
+        { }
+
 
         // Armor
         public Inventory(string Type, string Name, string Description, string Slot, int Gold, string PrefixName, string PrefixStat, int PrefixValue, string SuffixName, string SuffixStat, int SuffixValue, int ArmorClass)
@@ -53,52 +52,32 @@ namespace TrialByCombat
             _armorClass = ArmorClass;
         }
 
+        //Weapons
+        public Inventory(string Type, string Name, string Description, string Slot, int Gold, string PrefixName, string PrefixStat, int PrefixValue, string SuffixName, string SuffixStat, int SuffixValue, int DamageLow, int DamageHigh)
+        {
+            _type = Type;
+            _name = Name;
+            _description = Description;
+            _slot = Slot;
+            _gold = Gold;
+
+            _prefixName = PrefixName;
+            _prefixStat = PrefixStat;
+            _prefixValue = PrefixValue;
+            _suffixName = SuffixName;
+            _suffixStat = SuffixStat;
+            _suffixValue = SuffixValue;
+
+            _damageLow = DamageLow;
+            _damageHigh = DamageHigh;
+        }
+
         //TODO everything below needs upgraded to new system
 
-
-
-        public Inventory(string Name, string Type, string Slot, int Gold, string Damage, string Info)
-        {
-            _name = Name;
-            _type = Type;
-            _slot = Slot;
-            _gold = Gold;
-            _damage = Damage;
-            _info = Info;
-        }
-        public Inventory(string Name, string Type, string Slot, int Gold, string Info)
-        {
-            _name = Name;
-            _type = Type;
-            _slot = Slot;
-            _gold = Gold;
-            _info = Info;
-        }
-
-        public Inventory()
-        {
-        }
-
-        //public override string ToString()
-        //{
-        //    if (Type == "Weapon")
-        //    {
-        //        return "Slot: " + Slot + "\tSlotNumber: " + SlotNumber + "\tName: " + Name + "\tType: " + Type + "\tGold: " + Gold + "\tdamage: " + Damage;
-        //        //return "Slot: " + Slot + " SlotNumber: " + SlotNumber + " Name: " + Name + " Type: " + Type + " Gold: " + Gold + " damage: " + Damage;
-        //    }
-        //    else
-        //    {
-        //        return "Slot: " + Slot + "\tSlotNumber: " + SlotNumber + "\tName: " + Name + "\tType: " + Type + "\tGold: " + Gold;
-        //        //return "Slot: " + Slot + " SlotNumber: " + SlotNumber + " Name: " + Name + " Type: " + Type + " Gold: " + Gold;
-        //    }
-        //}
 
         public void Initialize()
         {
             Inventories = new List<Inventory>();
-
-            //Inventories.Add(new Inventory("Padded Helmet", "Gear", "Head", 5, "this is a helmet"));
-            //Inventories.Add(new Inventory("Steel Sword", "Weapon", "Main Hand", 10, "2d10", "this is a sword"));
         }
 
 
@@ -109,60 +88,89 @@ namespace TrialByCombat
         {
             Console.Clear();
 
-            
-            int i = 0;
-            do
+            if (Inventories.Count == 0)
             {
-                if (Inventories[i]._type == "Weapon")
+                Console.WriteLine("Inventory Empty.");
+            }
+            else
+            {
+
+                Console.WriteLine("Inventory:");
+                Console.WriteLine();
+
+                int i = 0;
+                do
                 {
-                    Console.WriteLine(i + ") " + Inventories[i]._name + " Type: " + Inventories[i]._type + " Damage: " + Inventories[i]._damage);
-                }else
-                if (Inventories[i]._type == "Armor")
-                {
-                    //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10} {Inventories[i]._prefixName + " " + Inventories[i]._name + " of the " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
 
 
-                    //todo better formating for display
-                    //todo two lines
-                    //todo 1) CHEST     Godly Rags of The Whale
-                    //todo         Armor: 6     Health: 20          Gold: 25
-                    //todo or
-                    //todo 1) CHEST     Godly Rags of the Whale     AC: 6     HP: 20     G: 25
-                    Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}");
-                    Console.WriteLine($"{Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
+                    if (Inventories[i]._type == "Weapon")
+                    {
+                        //todo needs formating
+                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName + " Type: " + Inventories[i]._type + " Damage: " + Inventories[i]._damageLow + "-" + Inventories[i]._damageHigh);
+                        //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}, {Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40}");
+                    }
+                    else
+                    if (Inventories[i]._type == "Armor")
+                    {
+                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName);
+
+                        //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10} {Inventories[i]._prefixName + " " + Inventories[i]._name + " of the " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
 
 
-                }
-                else
-                {
-                    //Console.WriteLine(i + ") "
-                    //    + Inventories[i]._slot + "\t"
-                    //    + Inventories[i]._prefixName + " "
-                    //    + Inventories[i]._name + " of the "
-                    //    + Inventories[i]._suffixName + "\tArmor Class: "
-                    //    + Inventories[i]._armorClass + "\tGold: "
-                    //    + Inventories[i]._gold);
+                        //todo better formating for display
+                        //todo two lines
+                        //todo 1) CHEST     Godly Rags of The Whale
+                        //todo         Armor: 6     Health: 20          Gold: 25
+                        //todo or
+                        //todo 1) CHEST     Godly Rags of the Whale     AC: 6     HP: 20     G: 25
+                        // Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}, {Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40} {"Armor Class:",-11} {Inventories[i]._armorClass,2}");
+                        //Console.WriteLine($"{Inventories[i]._prefixStat, 10}: {Inventories[i]._prefixValue, 4}, {Inventories[i]._suffixStat,10}: {Inventories[i]._suffixValue,4}  {"Gold:",-5} {Inventories[i]._gold,5}");
 
-                    Console.WriteLine("OOPS");
-                   // Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10} {Inventories[i]._prefixName + " " + Inventories[i]._name + " of the " + Inventories[i]._suffixName,-40}{"Armor Class:", -11} {Inventories[i]._armorClass,2}     {"Gold:", -5} {Inventories[i]._gold,5}");
-                    //  slot 9 use 14
-                    //   Vulnerable Studded Leather of the Vulture  41 chatacyers -- use 46 
-                    //  armor class: XX  15 --> 20
-                    //  gold: XXXXX   11 --> 16
 
-                }
+                        //if (Inventories[i]._prefixStat == "Armor Class") //add prefix armor to base armor
+                        //{
+                        //    //int ac = (Inventories[i]._armorClass + Inventories[i]._prefixValue);
+                        //    //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}{Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40} {"Armor Class:",-11} {ac,2}");
+                        //    //Console.WriteLine($"{Inventories[i]._suffixStat,10}: {Inventories[i]._suffixValue,4}  {"Gold:",-5} {Inventories[i]._gold,5}");
+
+                        //}
+                        //else
+                        //{
+                        //    Console.WriteLine(i + ")**" + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName);
+                        //    //todo need formating
+                        // //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}, {Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40} {"Armor Class:",-11} {Inventories[i]._armorClass,2}");
+
+                        //}
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("OOPS");
+                    }
+
+                    i++;
+                } while (i < Inventories.Count);
+
+
+
+                Menu();
+
                 
-                i++;
-            } while (i < Inventories.Count);
-            
+            }
+        }
+
+
+        public void Remove(int iTemp)
+        {
+            Inventories.RemoveAt(iTemp); // removes item from the list
+        }
 
 
 
 
-
-
-
-            //TODO move to seperate method -- Menu() ??
+        //TODO inventory menu - show only Armor, show only weapons ??
+        public static void Menu()
+        {
             Console.WriteLine();
             Console.WriteLine("equip what item?");
             var sInput = Console.ReadLine();
@@ -175,7 +183,10 @@ namespace TrialByCombat
                 }
                 else
                 {
-                    // EquipItem() -- needs added - adds item to player
+                    Variables.weaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                    Variables.weaponDamageLow = Inventories[_number]._damageLow;
+                    Variables.weaponDamageHigh = Inventories[_number]._damageHigh;
+
                     Inventories.RemoveAt(_number);
                 }
             }
@@ -186,18 +197,25 @@ namespace TrialByCombat
         }
 
 
-        public void Remove(int iTemp)
+        // temp maybe ??
+        public static void EquipStarterWeapon()
         {
-            Inventories.RemoveAt(iTemp); // removes item from the list
+            Variables.weaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName;
+            Variables.weaponDamageLow = Inventories[0]._damageLow;
+            Variables.weaponDamageHigh = Inventories[0]._damageHigh;
+            Inventories.RemoveAt(0);
         }
 
 
-        //TODO inventory menu
+
+
+
+
         /*
         * drop on ground
         * equip 
         * return to game
         */
-            
+
     }
 }

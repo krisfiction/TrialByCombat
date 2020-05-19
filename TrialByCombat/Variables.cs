@@ -9,7 +9,13 @@ namespace TrialByCombat
     public class Variables
     {
         public static string weaponName = "";
-        public static string weaponDmg = "";
+        public static int weaponDmg = 0; 
+
+        public static int weaponDamageLow = 0;
+        public static int weaponDamageHigh = 0;
+        public static int weaponDamage = 0;
+
+
 
         public static void SetWeaponName(string value)
         {
@@ -21,12 +27,12 @@ namespace TrialByCombat
             return weaponName;
         }
 
-        public static void SetWeaponDmg(string value)
+        public static void SetWeaponDmg(int value)
         {
             weaponDmg = value;
         }
 
-        public static string GetWeaponDmg()
+        public static int GetWeaponDmg()
         {
             return weaponDmg;
         }

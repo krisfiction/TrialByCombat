@@ -30,12 +30,20 @@ namespace TrialByCombat
             }
             else if (getLoot == 2 || getLoot == 3 || getLoot == 4) // 2, 3 or 4 - 30% chance
             {
+                Console.WriteLine("you get Gear!");
                 Generate.Armor(); //need method for other loot - Jewelry, Weapons, etc...
+            }
+            else if (getLoot == 5 || getLoot == 6 || getLoot == 7) // 2, 3 or 4 - 30% chance
+            {
+                Console.WriteLine("you get a Weapon!");
+                Generate.Weapon();
             }
             else
             {
                 Console.WriteLine("you get nothing");
             }
+
+            Console.WriteLine("Random Number: " + getLoot);
         }
     }
 }

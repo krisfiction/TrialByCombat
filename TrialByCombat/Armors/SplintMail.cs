@@ -19,7 +19,7 @@
 
             ArmorLow = 30;
             ArmorHigh = 35;
-            ArmorClass = Armor.ArmorRoll(ArmorLow, ArmorHigh);
+            ArmorClass = Roll(ArmorLow, ArmorHigh);
         }
     }
 }

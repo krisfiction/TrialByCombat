@@ -4,12 +4,48 @@ using System.Text;
 using TrialByCombat.Armors;
 using TrialByCombat.Potions;
 using TrialByCombat.Scrolls;
+using TrialByCombat.Weapons;
 
 namespace TrialByCombat
 {
     internal static class Generate
     {
         private static readonly Random random = new Random();
+
+        //todo Potion()
+        //todo Scoll()
+        //todo Weapon()
+        //todo Shield()
+        //todo Jewelry()
+        //todo Quest Item, Junk, Gems, Keys, Runes, Charms, Tomes, Arrows, Bolts, Bows, Crossbow, Staves, Wands, etc ....
+
+
+
+        public static void Weapon()
+        {
+            string prefixName;
+            int prefixValue;
+            string prefixStat;
+            (prefixName, prefixStat, prefixValue) = Prefix.Generate("Weapon");
+
+            string suffixName;
+            string suffixStat;
+            int suffixValue;
+            (suffixName, suffixStat, suffixValue) = Suffix.Generate("Weapon");
+
+
+            //int _weaponType = random.Next(1, 11);
+            int _weaponType = 1;
+            switch (_weaponType)
+            {
+                case 1:
+                    Axe axe = new Axe(prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    axe.WeaponAddToInventory();
+                    break;
+            }
+        }
+
+
         public static void Armor()
         {
             int _slot = random.Next(0, 8);
@@ -23,7 +59,6 @@ namespace TrialByCombat
             gearSlot[6] = "pants"; // legs
             gearSlot[7] = "boots"; // feet
 
-
             string prefixName;
             int prefixValue;
             string prefixStat;
@@ -35,55 +70,49 @@ namespace TrialByCombat
             (suffixName, suffixStat, suffixValue) = Suffix.Generate("Armor");
 
 
-
-
-            //int _armorType = random.Next(1, 11);
-            int _armorType = 1; //TODO remove - for testing 
+            int _armorType = random.Next(1, 11);
             switch (_armorType)
             {
                 case 1:
-                    //Rags rags = new Rags(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                   
                     Rags rags = new Rags(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
                     rags.ArmorAddToInventory();
                     break;
-                //case 2:
-                //    Quilted cloak = new Quilted(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    cloak.ArmorAddToInventory();
-                //    break;
-                //case 3:
-                //    Leather leather = new Leather(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    leather.ArmorAddToInventory();
-                //    break;
-                //case 4:
-                //    HardLeather hardLeather = new HardLeather(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    hardLeather.ArmorAddToInventory();
-                //    break;
-                //case 5:
-                //    StuddedLeather studdedLeather = new StuddedLeather(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    studdedLeather.ArmorAddToInventory();
-                //    break;
-                //case 6:
-                //    RingMail ringMail = new RingMail(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    ringMail.ArmorAddToInventory();
-                //    break;
-                //case 7:
-                //    ChainMail chainMail = new ChainMail(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    chainMail.ArmorAddToInventory();
-                //    break;
-                //case 8:
-                //    ScaleMail scaleMail = new ScaleMail(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    scaleMail.ArmorAddToInventory();
-                //    break;
-                //case 9:
-                //    FieldPlate fieldPlate = new FieldPlate(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    fieldPlate.ArmorAddToInventory();
-                //    break;
-                //case 10:
-                //    GothicPlate gothicPlate = new GothicPlate(gearSlot[_slot], prefixName[_prefixRandom], "Armor", 5, suffixName[_suffixRandom], "Health", 5);
-                //    gothicPlate.ArmorAddToInventory();
-                //    break;
-
+                case 2:
+                    Quilted cloak = new Quilted(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    cloak.ArmorAddToInventory();
+                    break;
+                case 3:
+                    Leather leather = new Leather(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    leather.ArmorAddToInventory();
+                    break;
+                case 4:
+                    HardLeather hardLeather = new HardLeather(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    hardLeather.ArmorAddToInventory();
+                    break;
+                case 5:
+                    StuddedLeather studdedLeather = new StuddedLeather(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    studdedLeather.ArmorAddToInventory();
+                    break;
+                case 6:
+                    RingMail ringMail = new RingMail(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    ringMail.ArmorAddToInventory();
+                    break;
+                case 7:
+                    ChainMail chainMail = new ChainMail(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    chainMail.ArmorAddToInventory();
+                    break;
+                case 8:
+                    ScaleMail scaleMail = new ScaleMail(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    scaleMail.ArmorAddToInventory();
+                    break;
+                case 9:
+                    FieldPlate fieldPlate = new FieldPlate(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    fieldPlate.ArmorAddToInventory();
+                    break;
+                case 10:
+                    GothicPlate gothicPlate = new GothicPlate(gearSlot[_slot], prefixName, prefixStat, prefixValue, suffixName, suffixStat, suffixValue);
+                    gothicPlate.ArmorAddToInventory();
+                    break;
             }
         }
     }

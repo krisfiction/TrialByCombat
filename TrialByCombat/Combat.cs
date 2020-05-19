@@ -4,6 +4,7 @@ namespace TrialByCombat
 {
     class Combat
     {
+        private static readonly Random random = new Random();
         public void Start()
         {
             Console.Clear(); //may need moved ??
@@ -18,12 +19,15 @@ namespace TrialByCombat
         public void DamageDone()
         {
             DiceRoller diceRoller = new DiceRoller();
-            diceRoller.Start(Variables.weaponDmg);
+            //diceRoller.Start(Variables.weaponDmg);
 
-            Console.WriteLine("Using your " + Variables.weaponName + ", rolling a " + Variables.weaponDmg + ", you do " + Variables.Total + " damage");
+            Variables.weaponDamage = random.Next(Variables.weaponDamageLow, Variables.weaponDamageHigh);
+
+
+            Console.WriteLine("Using your " + Variables.weaponName + ", you do " + Variables.weaponDamage + " damage!");
             Console.WriteLine();
 
-            Monster.HP -= Variables.Total;
+            Monster.HP -= Variables.weaponDamage;
 
 
 

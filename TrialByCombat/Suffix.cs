@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Text;
 
 namespace TrialByCombat
@@ -42,8 +41,13 @@ namespace TrialByCombat
             {
                 //"name", "stat name", Value low, Value high, "occurence"
                
+                //Strength
 
-                //Health
+                //Vitality
+
+                //All Attributes -- multi add
+
+                //Life - 10 items
                 new Suffix("of the Vulture", "HP", -25, -11, "ASJ"),
                 new Suffix("of the Jackal", "HP", -10, -1, "ASJ"),
                 new Suffix("of the Fox", "HP", 10, 15, "ASJ"),
@@ -55,6 +59,15 @@ namespace TrialByCombat
                 new Suffix("of the Mammoth", "HP", 61, 80, "A"),
                 new Suffix("of the Whale", "HP", 81, 100, "A")
 
+                //Damage Done
+
+                //Damage Reduction
+
+                //Steal Life
+
+                //Steal Mana
+
+                //Light Radius -- future use
             };
         }
 
@@ -66,36 +79,29 @@ namespace TrialByCombat
             //if Value fits Slot
             //assign Suffix
 
-            Initialize(); //move to game start up ??
+           Initialize();
 
-
-            //pick random item from Suffix[X] list
-            //assign propertys
-
-
-
-
-
-            int g = random.Next(0, 10); // random item from Suffixes list
-
-            //todo random item from Suffix list here
-
-            //todo do _valueLow, _valueHigh math --> assign to pValue
-
-
-            if (Slot == "Armor" & (Suffixes[g]._occurrence.Contains("A")))
+            int i = random.Next(0, 10); // random item from Suffixes list
+            if (Slot == "Armor" && Suffixes[i]._occurrence.Contains("A"))
             {
-                name = Suffixes[g]._name;
-                statName = "value";
-                value = (random.Next(Suffixes[g]._valueLow, Suffixes[g]._valueHigh));
+                name = Suffixes[i]._name;
+                statName = Suffixes[i]._statName;
+                value = (random.Next(Suffixes[i]._valueLow, Suffixes[i]._valueHigh));
+            }
+            if (Slot == "Weapon" && Suffixes[i]._occurrence.Contains("W"))
+            {
+                name = Suffixes[i]._name;
+                statName = Suffixes[i]._statName;
+                value = (random.Next(Suffixes[i]._valueLow, Suffixes[i]._valueHigh));
             }
             else
-            {
-                name = "";
-                statName = "";
-                value = 0;
-            }
+            //{
+            //name = "FAIL";
+            //statName = "statFAIL";
+            //value = 88888;
+            //}
             return (name, statName, value);
+            return default;
         }
     }
 }

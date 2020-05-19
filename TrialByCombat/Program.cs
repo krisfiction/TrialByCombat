@@ -16,11 +16,31 @@ namespace TrialByCombat
             Player.Name = Console.ReadLine();
             Console.Clear();
 
-            Inventory InventoryList = new Inventory(); //TODO inventory list
+            Inventory InventoryList = new Inventory();
             InventoryList.Initialize();
 
-            Weapons weapons = new Weapons();
-            weapons.GetWeapon();
+           
+            Prefix.Initialize();
+            Suffix.Initialize();
+
+
+            Generate.Weapon();
+            Inventory.EquipStarterWeapon();
+
+
+            //testing
+            //int f = 0;
+            //do
+            //{
+            //    Generate.Weapon();
+            //    Generate.Armor();
+            //    f++;
+            //} while (f < 10);
+
+
+
+
+            //todo get starter weapon
 
             StartGame();
            
@@ -73,7 +93,7 @@ namespace TrialByCombat
                 Console.WriteLine("d) Death Scroll (Instant Kill)\t\t" + Scroll.DeathScrollCount + " available");
                 Console.WriteLine();
                 Console.WriteLine("c) Character Sheet");
-                
+
 
                 ConsoleKey aInput = Console.ReadKey().Key;
                 if (aInput == ConsoleKey.Escape)
@@ -99,8 +119,8 @@ namespace TrialByCombat
             }
 
             Console.WriteLine("you have slain the " + Monster.Name);
-            Generate.Armor();
-
+            Loot.Roll();
+            //Generate.Armor();
         }
     }
 }
