@@ -6,41 +6,11 @@ using System.Threading.Tasks;
 
 namespace TrialByCombat
 {
-    public class Variables
+    public static class Variables
     {
-        public static string weaponName = "";
-        public static int weaponDmg = 0; 
-
-        public static int weaponDamageLow = 0;
-        public static int weaponDamageHigh = 0;
-        public static int weaponDamage = 0;
-
-
-
-        public static void SetWeaponName(string value)
-        {
-            weaponName = value;
-        }
-
-        public static string GetWeaponName()
-        {
-            return weaponName;
-        }
-
-        public static void SetWeaponDmg(int value)
-        {
-            weaponDmg = value;
-        }
-
-        public static int GetWeaponDmg()
-        {
-            return weaponDmg;
-        }
-
-
-
-
-
+        //DiceRoller needs refactored
+        //maybe replaced with low / high instead 
+        //2d8 --> 2 / 16
 
         private static int numOfSides = 0;
 

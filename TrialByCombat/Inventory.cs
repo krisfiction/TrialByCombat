@@ -84,7 +84,7 @@ namespace TrialByCombat
 
 
 
-        public static void Display()
+        public static void Display(Player player)
         {
             Console.Clear();
 
@@ -154,7 +154,7 @@ namespace TrialByCombat
 
 
 
-                Menu();
+                Menu(player);
 
                 
             }
@@ -170,7 +170,7 @@ namespace TrialByCombat
 
 
         //! inventory menu - show only Armor, show only weapons ??
-        public static void Menu()
+        public static void Menu(Player player)
         {
             Console.WriteLine();
             Console.WriteLine("equip what item?");
@@ -186,15 +186,15 @@ namespace TrialByCombat
                 {
                    if (Inventories[_number]._prefixStat == "Damage Done")
                     {
-                        Variables.weaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName + " +" + Inventories[_number]._prefixValue;
-                        Variables.weaponDamageLow = Inventories[_number]._damageLow + Inventories[_number]._prefixValue;
-                        Variables.weaponDamageHigh = Inventories[_number]._damageHigh + Inventories[_number]._prefixValue;
+                        player.WeaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName + " +" + Inventories[_number]._prefixValue;
+                        player.WeaponDamageLow = Inventories[_number]._damageLow + Inventories[_number]._prefixValue;
+                        player.WeaponDamageHigh = Inventories[_number]._damageHigh + Inventories[_number]._prefixValue;
                     }
                     else
                     {
-                        Variables.weaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                        Variables.weaponDamageLow = Inventories[_number]._damageLow;
-                        Variables.weaponDamageHigh = Inventories[_number]._damageHigh;
+                        player.WeaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                        player.WeaponDamageLow = Inventories[_number]._damageLow;
+                        player.WeaponDamageHigh = Inventories[_number]._damageHigh;
                     }
 
                     Inventories.RemoveAt(_number);
@@ -208,19 +208,19 @@ namespace TrialByCombat
 
 
         // temp maybe ??
-        public static void EquipStarterWeapon()
+        public static void EquipStarterWeapon(Player player)
         {
             if (Inventories[0]._prefixStat == "Damage Done")
             {
-                Variables.weaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName + " +" + Inventories[0]._prefixValue;
-                Variables.weaponDamageLow = Inventories[0]._damageLow + Inventories[0]._prefixValue;
-                Variables.weaponDamageHigh = Inventories[0]._damageHigh + Inventories[0]._prefixValue;
+                player.WeaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName + " +" + Inventories[0]._prefixValue;
+                player.WeaponDamageLow = Inventories[0]._damageLow + Inventories[0]._prefixValue;
+                player.WeaponDamageHigh = Inventories[0]._damageHigh + Inventories[0]._prefixValue;
             }
             else
             {
-                Variables.weaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName;
-                Variables.weaponDamageLow = Inventories[0]._damageLow;
-                Variables.weaponDamageHigh = Inventories[0]._damageHigh;
+                player.WeaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName;
+                player.WeaponDamageLow = Inventories[0]._damageLow;
+                player.WeaponDamageHigh = Inventories[0]._damageHigh;
             }
             Inventories.RemoveAt(0);
         }

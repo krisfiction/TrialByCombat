@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using TrialByCombat.Armors;
 using TrialByCombat.Monsters;
@@ -20,7 +21,7 @@ namespace TrialByCombat
         //todo Jewelry()
         //todo Quest Item, Junk, Gems, Keys, Runes, Charms, Tomes, Arrows, Bolts, Bows, Crossbow, Staves, Wands, etc ....
 
-        public static void Monster(Monster monster)
+        public static void Monster(Monster monster) //todo needs looked at
         {
             int _monster = random.Next(1, 3);
             switch (_monster)
@@ -31,7 +32,9 @@ namespace TrialByCombat
                     monster.Health = goblin.Health;
                     monster.HealthMax = goblin.HealthMax;
                     monster.DamageRoll = goblin.DamageRoll;
-                    monster.Damage = goblin.Damage;
+                    monster.WeaponDamageLow = goblin.WeaponDamageLow;
+                    monster.WeaponDamageHigh = goblin.WeaponDamageHigh;
+                    monster.WeaponDamage = goblin.WeaponDamage;
                     monster.Gold = goblin.Gold;
                     break;
                 case 2:
@@ -40,7 +43,9 @@ namespace TrialByCombat
                     monster.Health = rat.Health;
                     monster.HealthMax = rat.HealthMax;
                     monster.DamageRoll = rat.DamageRoll;
-                    monster.Damage = rat.Damage;
+                    monster.WeaponDamageLow = rat.WeaponDamageLow;
+                    monster.WeaponDamageHigh = rat.WeaponDamageHigh;
+                    monster.WeaponDamage = rat.WeaponDamage;
                     monster.Gold = rat.Gold;
                     break;
 
@@ -62,7 +67,6 @@ namespace TrialByCombat
 
 
             int _weaponType = random.Next(1, 27); //26 weapons
-            //int _weaponType = 1;
             switch (_weaponType)
             {
                 case 1:

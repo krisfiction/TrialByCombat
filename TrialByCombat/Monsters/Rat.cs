@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrialByCombat.Monsters
 {
-    class Rat : Monster
+    internal class Rat : Monster
     {
         public Rat()
         {
@@ -13,7 +13,8 @@ namespace TrialByCombat.Monsters
             HealthMax = 10;
             Gold = 10;
             DamageRoll = "2d5";
-            Damage = 5;
+            WeaponDamageLow = 2;
+            WeaponDamageHigh = 10;
         }
     }
 }

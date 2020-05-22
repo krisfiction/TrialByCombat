@@ -15,6 +15,19 @@ namespace TrialByCombat
         public int Gold { get; set; }
 
 
+        public int WeaponDamageLow { get; set; }
+        public int WeaponDamageHigh { get; set; }
+
+        public int WeaponDamage { get; set; }
+
+
+
+
+        public string WeaponName { get; set; }
+        //public int WeaponDmg { get; set; }
+
+
+
         // add inventory here
     }
 }

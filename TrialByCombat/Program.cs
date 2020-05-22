@@ -22,7 +22,7 @@ namespace TrialByCombat
 
             //todo get starter weapon
             Generate.Weapon();
-            Inventory.EquipStarterWeapon();
+            Inventory.EquipStarterWeapon(player);
 
 
             Console.WriteLine("Welcome to the Trial By Combat! How long will you survive?");
@@ -74,7 +74,7 @@ namespace TrialByCombat
 
         public static void StartGame(Player player)
         {
-           Monster monster = new Monster();
+            Monster monster = new Monster();
             // monster.GetMonster();
             Generate.Monster(monster);
 
@@ -132,7 +132,7 @@ namespace TrialByCombat
                     combat.MonsterAttack(player, monster); // attack of opportunity ?? - may need removed - monster should be dead so it is redundant
                 }
                 if (aInput == ConsoleKey.I)
-                    Inventory.Display();
+                    Inventory.Display(player);
             }
 
             Console.WriteLine("you have slain the " + monster.Name);

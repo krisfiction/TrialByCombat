@@ -13,7 +13,8 @@ namespace TrialByCombat.Monsters
             HealthMax = 20;
             Gold = 20;
             DamageRoll = "2d10";
-            Damage = 20;
+            WeaponDamageLow = 2;
+            WeaponDamageHigh = 20;
         }
     }
 }

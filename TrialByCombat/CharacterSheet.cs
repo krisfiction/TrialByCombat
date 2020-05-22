@@ -19,7 +19,7 @@ namespace TrialByCombat
             Console.WriteLine();
             Console.WriteLine("Gold: " + player.Gold);
             Console.WriteLine();
-            Console.WriteLine("Weapon: " + Variables.weaponName + " " + Variables.weaponDamageLow + "-" + Variables.weaponDamageHigh + " damage");
+            Console.WriteLine("Weapon: " + player.WeaponName + " " + player.WeaponDamageLow + "-" + player.WeaponDamageHigh + " damage");
             Console.WriteLine();
             Console.WriteLine("Equipment:");
             Console.WriteLine("Head: " + player.HeadName + " +" + player.HeadArmorBonus);
