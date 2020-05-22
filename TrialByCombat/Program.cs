@@ -9,12 +9,8 @@ namespace TrialByCombat
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Trial By Combat! How long will you survive?");
-            Console.WriteLine();
+            Player player = new Player();
 
-            Console.WriteLine("What is your name?");
-            Player.Name = Console.ReadLine();
-            Console.Clear();
 
             Inventory InventoryList = new Inventory();
             InventoryList.Initialize();
@@ -24,25 +20,33 @@ namespace TrialByCombat
             Suffix.Initialize();
 
 
+            //todo get starter weapon
             Generate.Weapon();
             Inventory.EquipStarterWeapon();
 
 
+            Console.WriteLine("Welcome to the Trial By Combat! How long will you survive?");
+            Console.WriteLine();
+            Console.WriteLine("What is your name?");
+            player.Name = Console.ReadLine();
+            Console.Clear();
+
+
+
+            //maybe lower item count and use as random inventory to choose weapon and gear
             // testing
-            //int f = 0;
-            //do
-            //{
-            //    Generate.Weapon();
-            //    Generate.Armor();
-            //    f++;
-            //} while (f < 25);
+            int f = 0;
+            do
+            {
+                Generate.Weapon();
+                //Generate.Armor();
+                f++;
+            } while (f < 25);
 
 
 
 
-            //todo get starter weapon
-
-            StartGame();
+            StartGame(player);
            
 
             bool keepPlaying = true;
@@ -54,7 +58,7 @@ namespace TrialByCombat
                 if (bInput == ConsoleKey.Y)
                 {
                     Console.Clear(); //may need moved
-                    StartGame();
+                    StartGame(player);
                 }
                 else
                     keepPlaying = false;
@@ -68,22 +72,26 @@ namespace TrialByCombat
         }
 
 
-        public static void StartGame()
+        public static void StartGame(Player player)
         {
-            Monster ymonsters = new Monster();
-            ymonsters.GetMonster();
+           Monster monster = new Monster();
+            // monster.GetMonster();
+            Generate.Monster(monster);
 
 
-            Console.WriteLine("You see a " + Monster.Name);
+            Console.WriteLine("You see a " + monster.Name);
 
             Console.WriteLine();
 
 
 
             Combat combat = new Combat();
-            while (0 < Monster.HP)
+
+
+
+            while (0 < monster.Health)
             {
-                StatBar.DisplayStatBar();
+                StatBar.DisplayStatBar(player, monster);
 
                 //move to seperate method Combat.Menu() ??
                 Console.WriteLine("Combat Menu:");
@@ -97,29 +105,38 @@ namespace TrialByCombat
 
                 ConsoleKey aInput = Console.ReadKey().Key;
                 if (aInput == ConsoleKey.Escape)
-                    Environment.Exit(0);
+                {
+                    Console.WriteLine("x"); //Escape key seems to delete the first character of the next line
+                    Console.WriteLine("are you sure you want to Quit playing? (press Y for yes");
+                   
+                    ConsoleKey bInput = Console.ReadKey().Key;
+                    if (bInput == ConsoleKey.Y)
+                    {
+                        Environment.Exit(0);
+                    }
+                }
                 if (aInput == ConsoleKey.A)
-                    combat.Start();
+                    combat.Start(player, monster);
                 if (aInput == ConsoleKey.H)
-                    HealthPotion.Cast();
+                    HealthPotion.Cast(player);
                 if (aInput == ConsoleKey.S)
                 {
-                    Scroll.MagicShield();
-                    combat.MonsterAttack(); // attack of opportunity ??
+                    Scroll.MagicShield(player);
+                    combat.MonsterAttack(player, monster); // attack of opportunity ??
                 }
                 if (aInput == ConsoleKey.C)
-                    CharacterSheet.Display();
+                    CharacterSheet.Display(player);
                 if (aInput == ConsoleKey.D)
                 {
-                    Scroll.Death();
-                    combat.MonsterAttack(); // attack of opportunity ?? - may need removed - monster should be dead so it is redundant
+                    Scroll.Death(monster);
+                    combat.MonsterAttack(player, monster); // attack of opportunity ?? - may need removed - monster should be dead so it is redundant
                 }
                 if (aInput == ConsoleKey.I)
                     Inventory.Display();
             }
 
-            Console.WriteLine("you have slain the " + Monster.Name);
-            Loot.Roll();
+            Console.WriteLine("you have slain the " + monster.Name);
+            Loot.Roll(player, monster);
             //Generate.Armor();
         }
     }

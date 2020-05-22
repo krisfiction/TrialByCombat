@@ -43,14 +43,14 @@ namespace TrialByCombat
                 //"name", "stat name", Value low, Value high, "occurence"
                
                 //Mana - 8 items
-                new Prefix("Hyena’s", "Mana", -25, -11, "TJ"),
-                new Prefix("Frog’s", "Mana", -10, -1, "TJ"),
-                new Prefix("Spider’s", "Mana", 10, 15, "TJ"),
-                new Prefix("Raven’s", "Mana", 15, 20, "TJ"),
-                new Prefix("Snake’s", "Mana", 21, 30, "TJ"),
-                new Prefix("Serpent’s", "Mana", 30, 40, "TJ"),
-                new Prefix("Drake’s", "Mana", 41, 50, "TJ"),
-                new Prefix("Dragon’s", "Mana", 51, 60, "TJ"),
+                //new Prefix("Hyena’s", "Mana", -25, -11, "TJ"),
+                //new Prefix("Frog’s", "Mana", -10, -1, "TJ"),
+                //new Prefix("Spider’s", "Mana", 10, 15, "TJ"),
+                //new Prefix("Raven’s", "Mana", 15, 20, "TJ"),
+                //new Prefix("Snake’s", "Mana", 21, 30, "TJ"),
+                //new Prefix("Serpent’s", "Mana", 30, 40, "TJ"),
+                //new Prefix("Drake’s", "Mana", 41, 50, "TJ"),
+                //new Prefix("Dragon’s", "Mana", 51, 60, "TJ"),
                 
 
              
@@ -98,7 +98,7 @@ namespace TrialByCombat
         }
 
 
-        public static (string pname, string pstat, int pvalue) Generate(string Slot)
+        public static (string pname, string pstat, int pvalue) Generate(string _type)
         {
             //get random prefix Stat
             //get Value of that Stat
@@ -110,15 +110,15 @@ namespace TrialByCombat
             statName = "";
             value = 0;
 
-            int i = random.Next(0,32); // random item from Prefixes list 
-            if (Slot == "Armor" && Prefixes[i]._occurrence.Contains("A"))
+            int i = random.Next(0,24); // random item from Prefixes list 
+            if (_type == "Armor" && Prefixes[i]._occurrence.Contains("A"))
             {
                 name = Prefixes[i]._name;
                 statName = Prefixes[i]._statName;
                 value = random.Next(Prefixes[i]._valueLow, Prefixes[i]._valueHigh);
             }
 
-            if (Slot == "Weapon" && Prefixes[i]._occurrence.Contains("W"))
+            if (_type == "Weapon" && Prefixes[i]._occurrence.Contains("W"))
             {
                 name = Prefixes[i]._name;
                 statName = Prefixes[i]._statName;

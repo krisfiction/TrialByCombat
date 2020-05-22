@@ -2,9 +2,9 @@
 
 namespace TrialByCombat
 {
-    public class StatBar
+    public static class StatBar
     {
-        public static void DisplayStatBar()
+        public static void DisplayStatBar(Player player, Monster monster)
         {
             Console.ForegroundColor = ConsoleColor.Blue; // makes text blue - may be removed
 
@@ -14,8 +14,8 @@ namespace TrialByCombat
             //this needs work if it is going to be used
             //Console.WriteLine("{0,-10}{1,-4}{2,-5}{3,-15}{4,-5}{5,20}{6,5}", Player.Name, "HP:", Player.HP, "Magic Shield:", Player.Shield, "Armor Bonus:", (Player.ChestArmorBonus + Player.HeadArmorBonus));
             
-            Console.WriteLine(Player.Name + "\tHP " + Player.HP + "/" + Player.HPmax + "\tMagic Shield: " + Player.Shield + "\t\tArmor Bonus: " + (Player.ChestArmorBonus + Player.HeadArmorBonus));
-            Console.WriteLine(Monster.Name + "\tHP " + Monster.HP + "/" + Monster.HPmax);
+            Console.WriteLine(player.Name + "\tHP " + player.Health + "/" + player.HealthMax + "\tMagic Shield: " + player.Shield + "\t\tArmor Bonus: " + (player.ChestArmorBonus + player.HeadArmorBonus));
+            Console.WriteLine(monster.Name + "\tHP " + monster.Health + "/" + monster.HealthMax);
             //Console.WriteLine("********************************************************************************");
             Console.WriteLine(("").PadRight(80, '*'));
             Console.WriteLine();

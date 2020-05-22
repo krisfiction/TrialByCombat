@@ -41,7 +41,14 @@ namespace TrialByCombat
             {
                 //"name", "stat name", Value low, Value high, "occurence"
                
-                //Strength
+                //Strength - 7 items
+                new Suffix("of Frailty", "Strength", -10, -6, "ASWBJ"),
+                new Suffix("of Weakness", "Strength", -5, -1, "ASWBJ"),
+                new Suffix("of Strength", "Strength", 1, 5, "ASWBJ"),
+                new Suffix("of Might", "Strength", 6, 10, "ASWBJ"),
+                new Suffix("of Power", "Strength", 11, 15, "ASWBJ"),
+                new Suffix("of Giants", "Strength", 16, 20, "AWBJ"),
+                new Suffix("of Titans", "Strength", 21, 30, "WJ"),
 
                 //Vitality
 
@@ -83,7 +90,7 @@ namespace TrialByCombat
             statName = "";
             value = 0;
 
-            int i = random.Next(0, 10); // random item from Suffixes list
+            int i = random.Next(0, 17); // random item from Suffixes list
             if (Slot == "Armor" && Suffixes[i]._occurrence.Contains("A"))
             {
                 name = Suffixes[i]._name;

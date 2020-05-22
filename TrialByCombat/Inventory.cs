@@ -94,7 +94,6 @@ namespace TrialByCombat
             }
             else
             {
-
                 Console.WriteLine("Inventory:");
                 Console.WriteLine();
 
@@ -103,13 +102,18 @@ namespace TrialByCombat
                 {
 
 
-                    if (Inventories[i]._type == "Weapon")
+
+
+                    if ((Inventories[i]._type == "Weapon") && (Inventories[i]._prefixStat == "Damage Done"))
                     {
-                        //todo needs formating
-                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName + " Type: " + Inventories[i]._type + " Damage: " + Inventories[i]._damageLow + "-" + Inventories[i]._damageHigh);
-                        //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}, {Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40}");
+                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName + " +" + Inventories[i]._prefixValue + " Type: " + Inventories[i]._type + " Damage: " +  (Inventories[i]._damageLow + Inventories[i]._prefixValue) + "-" + (Inventories[i]._damageHigh + Inventories[i]._prefixValue));
                     }
-                    else
+                    else if (Inventories[i]._type == "Weapon")
+                    {
+                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName + " Type: " + Inventories[i]._type + " Damage: " + Inventories[i]._damageLow + "-" + Inventories[i]._damageHigh);
+                    }
+
+
                     if (Inventories[i]._type == "Armor")
                     {
                         Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName);
@@ -143,10 +147,7 @@ namespace TrialByCombat
                         //}
 
                     }
-                    else
-                    {
-                        Console.WriteLine("OOPS");
-                    }
+                    
 
                     i++;
                 } while (i < Inventories.Count);
@@ -168,7 +169,7 @@ namespace TrialByCombat
 
 
 
-        //TODO inventory menu - show only Armor, show only weapons ??
+        //! inventory menu - show only Armor, show only weapons ??
         public static void Menu()
         {
             Console.WriteLine();
@@ -179,13 +180,22 @@ namespace TrialByCombat
             {
                 if (_number >= (Inventories.Count))
                 {
-                    Console.WriteLine("Invalid Number"); //TODO needs fixed
+                    Console.WriteLine("Invalid Number"); //! needs fixed
                 }
-                else
+                else //todo check what type of item it is and equip to the right slot - everything is currently equipped as a weapon
                 {
-                    Variables.weaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                    Variables.weaponDamageLow = Inventories[_number]._damageLow;
-                    Variables.weaponDamageHigh = Inventories[_number]._damageHigh;
+                   if (Inventories[_number]._prefixStat == "Damage Done")
+                    {
+                        Variables.weaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName + " +" + Inventories[_number]._prefixValue;
+                        Variables.weaponDamageLow = Inventories[_number]._damageLow + Inventories[_number]._prefixValue;
+                        Variables.weaponDamageHigh = Inventories[_number]._damageHigh + Inventories[_number]._prefixValue;
+                    }
+                    else
+                    {
+                        Variables.weaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                        Variables.weaponDamageLow = Inventories[_number]._damageLow;
+                        Variables.weaponDamageHigh = Inventories[_number]._damageHigh;
+                    }
 
                     Inventories.RemoveAt(_number);
                 }
@@ -200,9 +210,18 @@ namespace TrialByCombat
         // temp maybe ??
         public static void EquipStarterWeapon()
         {
-            Variables.weaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName;
-            Variables.weaponDamageLow = Inventories[0]._damageLow;
-            Variables.weaponDamageHigh = Inventories[0]._damageHigh;
+            if (Inventories[0]._prefixStat == "Damage Done")
+            {
+                Variables.weaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName + " +" + Inventories[0]._prefixValue;
+                Variables.weaponDamageLow = Inventories[0]._damageLow + Inventories[0]._prefixValue;
+                Variables.weaponDamageHigh = Inventories[0]._damageHigh + Inventories[0]._prefixValue;
+            }
+            else
+            {
+                Variables.weaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName;
+                Variables.weaponDamageLow = Inventories[0]._damageLow;
+                Variables.weaponDamageHigh = Inventories[0]._damageHigh;
+            }
             Inventories.RemoveAt(0);
         }
 

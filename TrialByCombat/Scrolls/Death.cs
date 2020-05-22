@@ -6,7 +6,7 @@ namespace TrialByCombat.Scrolls
     {
         public static int DeathScrollCount { get; set; } = 15;
 
-        public static void Death()
+        public static void Death(Monster monster)
         {
             // Instant Kill
             // No Loot, No Gold
@@ -17,12 +17,12 @@ namespace TrialByCombat.Scrolls
             {
                 DeathScrollCount--; //subtract 1
 
-                int oldHP = Monster.HP;
+                int oldHP = monster.Health;
 
-                Monster.HP -= Convert.ToInt32(Monster.HP * 1.10); // monster hp + 10%
+                monster.Health -= Convert.ToInt32(monster.Health * 1.10); // monster hp + 10%
 
                 Console.Clear();
-                Console.WriteLine("you have read a Death Scroll, you did " + (Monster.HP - oldHP) + " points of damage");
+                Console.WriteLine("you have read a Death Scroll, you did " + (monster.Health - oldHP) + " points of damage");
                 Console.WriteLine();
             }
             else

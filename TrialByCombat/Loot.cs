@@ -9,12 +9,12 @@ namespace TrialByCombat
     {
         private static readonly Random random = new Random();
 
-        public static void Roll()
+        public static void Roll(Player player, Monster monster)
         {
-            Player.Gold += Monster.Gold; // you get Gold
+            player.Gold += monster.Gold; // you get Gold
 
             Console.WriteLine();
-            Console.WriteLine("you recieve " + Monster.Gold + " gold, with a total of " + Player.Gold);
+            Console.WriteLine("you recieve " + monster.Gold + " gold, with a total of " + player.Gold);
             Console.WriteLine();
 
             int getLoot = random.Next(0, 10); // should roll 0 through 9, giving 10 chances
@@ -42,8 +42,7 @@ namespace TrialByCombat
             {
                 Console.WriteLine("you get nothing");
             }
-
-            Console.WriteLine("Random Number: " + getLoot);
+            
         }
     }
 }

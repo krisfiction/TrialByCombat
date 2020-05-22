@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TrialByCombat.Armors;
+using TrialByCombat.Monsters;
 using TrialByCombat.Potions;
 using TrialByCombat.Scrolls;
 using TrialByCombat.Weapons;
@@ -19,7 +20,33 @@ namespace TrialByCombat
         //todo Jewelry()
         //todo Quest Item, Junk, Gems, Keys, Runes, Charms, Tomes, Arrows, Bolts, Bows, Crossbow, Staves, Wands, etc ....
 
+        public static void Monster(Monster monster)
+        {
+            int _monster = random.Next(1, 3);
+            switch (_monster)
+            {
+                case 1:
+                    Goblin goblin = new Goblin();
+                    monster.Name = goblin.Name;
+                    monster.Health = goblin.Health;
+                    monster.HealthMax = goblin.HealthMax;
+                    monster.DamageRoll = goblin.DamageRoll;
+                    monster.Damage = goblin.Damage;
+                    monster.Gold = goblin.Gold;
+                    break;
+                case 2:
+                    Rat rat = new Rat();
+                    monster.Name = rat.Name;
+                    monster.Health = rat.Health;
+                    monster.HealthMax = rat.HealthMax;
+                    monster.DamageRoll = rat.DamageRoll;
+                    monster.Damage = rat.Damage;
+                    monster.Gold = rat.Gold;
+                    break;
 
+
+            }
+        }
 
         public static void Weapon()
         {

@@ -4,60 +4,43 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrialByCombat.Potions;
+using TrialByCombat.Scrolls;
 
 namespace TrialByCombat
 {
-    static class Player
+    public class Player : Characters
     {
-        /*
-        //Player.Name
-        private static string _name = "rogue";
-
-        public static string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        */
-        public static string Name { get; set; } = "rogue";
-
-        /*
-        //Player.HP
-        private static int _hp = 10;
-
-        public static int HP
-        {
-            get { return _hp; }
-            set { _hp = value; }
-        }
-        */
-        public static int HP { get; set; } = 100;
-
-        public static int HPmax { get; set; } = 100;
-
-        public static int MANA { get; set; } = 10;
-
-        public static int AC { get; set; } = 10;
-
-        public static int Gold { get; set; } = 0;
 
 
-        public static int STR { get; set; } = 10;
-        public static int INT { get; set; } = 10;
+        //public string Name { get; set; } = "rogue";
+
+        //public int Health { get; set; } = 100;
+
+        //public int Healthmax { get; set; } = 100;
+
+        public int MANA { get; set; } = 10;
+
+        public int AC { get; set; } = 10;
+
+       
+
+        public int STR { get; set; } = 10;
+        public int INT { get; set; } = 10;
 
 
-        public static string HeadName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
-        public static int HeadCost { get; set; } = 0;
-        public static int HeadWeight { get; set; } = 0;
-        public static int HeadArmorBonus { get; set; } = 0;
+        public string HeadName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
+        public int HeadCost { get; set; } = 0;
+        public int HeadWeight { get; set; } = 0;
+        public int HeadArmorBonus;// { get; set; } = 0;
 
 
-        public static string ChestName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
-        public static int ChestCost { get; set; } = 0;
-        public static int ChestWeight { get; set; } = 0;
-        public static int ChestArmorBonus { get; set; } = 0;
+        public string ChestName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
+        public int ChestCost { get; set; } = 0;
+        public int ChestWeight { get; set; } = 0;
+        public int ChestArmorBonus { get; set; } = 0;
 
-        public static int Shield { get; set; } = 0;
+        public int Shield { get; set; } = 0;
         /* 
          * name
          * race
@@ -89,7 +72,5 @@ namespace TrialByCombat
          * hit
          * defense
          */
-
-
     }
 }

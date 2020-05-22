@@ -4,7 +4,7 @@ namespace TrialByCombat
 {
     class GearList
     {
-        public void GetGear(string theslot)
+        public void GetGear(Player player, string theslot)
         {
             string theSlot = theslot;
 
@@ -37,15 +37,15 @@ namespace TrialByCombat
             switch (theSlot)
             {
                 case "head":
-                    if (xarmorBonus > Player.HeadArmorBonus) // if armor bonus is bigger then it is a upgrade
+                    if (xarmorBonus > player.HeadArmorBonus) // if armor bonus is bigger then it is a upgrade
                     {
-                        Player.HeadName = xname;
-                        Player.HeadArmorBonus = xarmorBonus;
-                        Player.HeadWeight = xweight;
-                        Player.HeadCost = xcost;
+                        player.HeadName = xname;
+                        player.HeadArmorBonus = xarmorBonus;
+                        player.HeadWeight = xweight;
+                        player.HeadCost = xcost;
 
                         //Console.WriteLine("you recieve a " + Player.HeadName + " " + theSlot + " +" + Player.HeadArmorBonus + " costs " + Player.HeadArmorBonus + " gold and weighs " + Player.HeadWeight + " pounds");
-                        Console.WriteLine("you recieve a " + Player.HeadName + " helmet +" + Player.HeadArmorBonus);
+                        Console.WriteLine("you recieve a " + player.HeadName + " helmet +" + player.HeadArmorBonus);
 
                     }
 
@@ -65,14 +65,14 @@ namespace TrialByCombat
                     break;
 
                 case "chest":
-                    if (xarmorBonus > Player.ChestArmorBonus)
+                    if (xarmorBonus > player.ChestArmorBonus)
                     {
-                        Player.ChestName = xname;
-                        Player.ChestArmorBonus = xarmorBonus;
-                        Player.ChestWeight = xweight;
-                        Player.ChestCost = xcost;
+                        player.ChestName = xname;
+                        player.ChestArmorBonus = xarmorBonus;
+                        player.ChestWeight = xweight;
+                        player.ChestCost = xcost;
 
-                        Console.WriteLine("you recieve a " + Player.ChestName + " chest +" + Player.ChestArmorBonus + " costs " + Player.ChestArmorBonus);
+                        Console.WriteLine("you recieve a " + player.ChestName + " chest +" + player.ChestArmorBonus + " costs " + player.ChestArmorBonus);
 
                       
                     }

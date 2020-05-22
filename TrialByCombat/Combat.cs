@@ -5,18 +5,20 @@ namespace TrialByCombat
     class Combat
     {
         private static readonly Random random = new Random();
-        public void Start()
+        public void Start(Player player, Monster monster)
         {
             Console.Clear(); //may need moved ??
             Console.WriteLine("Combat started");
             Console.WriteLine();
 
-            DamageDone();
+            DamageDone(player, monster);
 
         }
 
 
-        public void DamageDone()
+        //todo weapons with negative damage will currently heal monsters 
+
+        public void DamageDone(Player player, Monster monster)
         {
             DiceRoller diceRoller = new DiceRoller();
             //diceRoller.Start(Variables.weaponDmg);
@@ -27,11 +29,11 @@ namespace TrialByCombat
             Console.WriteLine("Using your " + Variables.weaponName + ", you do " + Variables.weaponDamage + " damage!");
             Console.WriteLine();
 
-            Monster.HP -= Variables.weaponDamage;
+            monster.Health -= Variables.weaponDamage;
 
 
 
-            MonsterAttack();
+            MonsterAttack(player, monster);
 
 
 
@@ -39,7 +41,7 @@ namespace TrialByCombat
 
             //game over code - probably needs moved or a seperate function
 
-            if (Player.HP < 1)
+            if (player.Health < 1)
             {
                 Console.Clear();
                 Console.WriteLine("you die");
@@ -54,33 +56,33 @@ namespace TrialByCombat
                 Console.WriteLine("\n" + "press any key to continue.");
                 Console.ReadKey();
 
-                Player.HP = 100;
-                Program.StartGame();
+                player.Health = 100;
+                Program.StartGame(player);
 
             }
         }
 
-        public void MonsterAttack()
+        public void MonsterAttack(Player player, Monster monster)
         {
-            if (Monster.HP > 0)
+            if (monster.Health > 0)
             {
                 DiceRoller diceRoller = new DiceRoller();
 
-                diceRoller.Start(Monster.DamageRoll);
-                Monster.Damage = Variables.Total;
+                diceRoller.Start(monster.DamageRoll);
+                monster.Damage = Variables.Total;
 
-                Console.WriteLine("The " + Monster.Name + " strikes back rolling a " + Monster.DamageRoll + " doing " + Monster.Damage + " damage");
+                Console.WriteLine("The " + monster.Name + " strikes back rolling a " + monster.DamageRoll + " doing " + monster.Damage + " damage");
 
-                if (Player.Shield > Monster.Damage)
+                if (player.Shield > monster.Damage)
                 {
-                    Player.Shield -= Monster.Damage;
+                    player.Shield -= monster.Damage;
                 }
                 else
-                if (Monster.Damage > (Player.ChestArmorBonus + Player.HeadArmorBonus))
+                if (monster.Damage > (player.ChestArmorBonus + player.HeadArmorBonus))
                 {
-                    Player.HP -= ((Monster.Damage -= Player.Shield) - (Player.ChestArmorBonus + Player.HeadArmorBonus));
+                    player.Health -= ((monster.Damage -= player.Shield) - (player.ChestArmorBonus + player.HeadArmorBonus));
 
-                    Player.Shield = 0;
+                    player.Shield = 0;
                 }
             }
         }
