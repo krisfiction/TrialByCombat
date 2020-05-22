@@ -101,6 +101,7 @@ namespace TrialByCombat
                 Console.WriteLine("d) Death Scroll (Instant Kill)\t\t" + Scroll.DeathScrollCount + " available");
                 Console.WriteLine();
                 Console.WriteLine("c) Character Sheet");
+                Console.WriteLine("i) Inventory");
 
 
                 ConsoleKey aInput = Console.ReadKey().Key;
