@@ -21,7 +21,7 @@ namespace TrialByCombat
         //todo Jewelry()
         //todo Quest Item, Junk, Gems, Keys, Runes, Charms, Tomes, Arrows, Bolts, Bows, Crossbow, Staves, Wands, etc ....
 
-        public static void Monster(Monster monster) //todo needs looked at
+        public static void Monster(Monster monster) //todo needs looked into, a better way - add to list maybe
         {
             int _monster = random.Next(1, 3);
             switch (_monster)

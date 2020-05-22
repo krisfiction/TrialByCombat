@@ -8,5 +8,14 @@ namespace TrialByCombat
     {
         public string DamageRoll { get; set; } //to be removed ??
        // public int Damage { get; set; }
+
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+
+
     }
 }

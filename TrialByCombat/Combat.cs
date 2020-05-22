@@ -17,13 +17,10 @@ namespace TrialByCombat
         }
 
 
-        //todo weapons with negative damage will currently heal monsters 
+        
 
         public void DamageDone(Player player, Monster monster)
         {
-           
-
-
             player.WeaponDamage = random.Next(player.WeaponDamageLow, player.WeaponDamageHigh);
 
             if (player.WeaponDamage < 0) //for useless, junk, and weak prefix on weeapons
