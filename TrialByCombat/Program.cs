@@ -39,9 +39,9 @@ namespace TrialByCombat
             do
             {
                 Generate.Weapon();
-                //Generate.Armor();
+                Generate.Armor();
                 f++;
-            } while (f < 25);
+            } while (f < 10);
 
 
 

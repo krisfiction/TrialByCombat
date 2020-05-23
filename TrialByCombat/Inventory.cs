@@ -102,7 +102,7 @@ namespace TrialByCombat
                 {
 
 
-
+                    //todo fix display format to remove " " when there is no prefix
 
                     if ((Inventories[i]._type == "Weapon") && (Inventories[i]._prefixStat == "Damage Done"))
                     {
@@ -170,17 +170,18 @@ namespace TrialByCombat
 
 
         //! inventory menu - show only Armor, show only weapons ??
+        //! move eqiup to seperate method
         public static void Menu(Player player)
         {
             Console.WriteLine();
-            Console.WriteLine("equip what item?");
+            Console.WriteLine("equip what weapon? (gear not yet implemented)");
             var sInput = Console.ReadLine();
 
             if (Int32.TryParse(sInput, out int _number))
             {
                 if (_number >= (Inventories.Count))
                 {
-                    Console.WriteLine("Invalid Number"); //! needs fixed
+                    Console.WriteLine("Invalid Number");
                 }
                 else //todo check what type of item it is and equip to the right slot - everything is currently equipped as a weapon
                 {
