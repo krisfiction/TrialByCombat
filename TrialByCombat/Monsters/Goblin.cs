@@ -9,12 +9,11 @@ namespace TrialByCombat.Monsters
         public Goblin()
         {
             Name = "Goblin";
-            Health = 20;
-            HealthMax = 20;
+            HealthLow = 20;
+            HealthHigh = 30;
             Gold = 20;
-            DamageRoll = "2d10";
-            WeaponDamageLow = 2;
-            WeaponDamageHigh = 20;
+            WeaponDamageLow = 10;
+            WeaponDamageHigh = 25;
         }
     }
 }

@@ -7,13 +7,12 @@ namespace TrialByCombat
     public class Monster : Characters
     {
         public string DamageRoll { get; set; } //to be removed ??
-       // public int Damage { get; set; }
+                                               // public int Damage { get; set; }
+
+        public int HealthLow { get; set; }
+        public int HealthHigh { get; set; }
 
 
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
 
 
 

@@ -9,10 +9,9 @@ namespace TrialByCombat.Monsters
         public Rat()
         {
             Name = "Rat";
-            Health = 10;
-            HealthMax = 10;
+            HealthLow = 10;
+            HealthHigh = 15;
             Gold = 10;
-            DamageRoll = "2d5";
             WeaponDamageLow = 2;
             WeaponDamageHigh = 10;
         }

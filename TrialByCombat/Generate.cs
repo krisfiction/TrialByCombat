@@ -23,32 +23,36 @@ namespace TrialByCombat
 
         public static void Monster(Monster monster) //todo needs looked into, a better way - add to list maybe
         {
-            int _monster = random.Next(1, 3);
+            int _monster = random.Next(1, 4);
             switch (_monster)
             {
                 case 1:
                     Goblin goblin = new Goblin();
                     monster.Name = goblin.Name;
-                    monster.Health = goblin.Health;
-                    monster.HealthMax = goblin.HealthMax;
-                    monster.DamageRoll = goblin.DamageRoll;
+                    monster.HealthMax = random.Next(goblin.HealthLow, goblin.HealthHigh);
+                    monster.Health = goblin.HealthMax;
                     monster.WeaponDamageLow = goblin.WeaponDamageLow;
                     monster.WeaponDamageHigh = goblin.WeaponDamageHigh;
-                    monster.WeaponDamage = goblin.WeaponDamage;
                     monster.Gold = goblin.Gold;
                     break;
                 case 2:
                     Rat rat = new Rat();
                     monster.Name = rat.Name;
-                    monster.Health = rat.Health;
-                    monster.HealthMax = rat.HealthMax;
-                    monster.DamageRoll = rat.DamageRoll;
+                    monster.HealthMax = random.Next(rat.HealthLow, rat.HealthHigh);
+                    monster.Health = rat.HealthMax;
                     monster.WeaponDamageLow = rat.WeaponDamageLow;
                     monster.WeaponDamageHigh = rat.WeaponDamageHigh;
-                    monster.WeaponDamage = rat.WeaponDamage;
                     monster.Gold = rat.Gold;
                     break;
-
+                case 3:
+                    Zombie zombie = new Zombie();
+                    monster.Name = zombie.Name;
+                    monster.HealthMax = random.Next(zombie.HealthLow, zombie.HealthHigh); //random range for Health
+                    monster.Health = monster.HealthMax;
+                    monster.WeaponDamageLow = zombie.WeaponDamageLow;
+                    monster.WeaponDamageHigh = zombie.WeaponDamageHigh;
+                    monster.Gold = zombie.Gold;
+                    break;
 
             }
         }
