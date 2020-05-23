@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrialByCombat.Monsters
 {
-    class Zombie : Monster
+    internal class Zombie : Monster
     {
         public Zombie()
         {

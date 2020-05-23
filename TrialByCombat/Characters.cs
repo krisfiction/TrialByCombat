@@ -8,26 +8,24 @@ namespace TrialByCombat
     {
         public string Name;
 
-        public int Health { get; set; } = 100;
+        public int Health { get; set; }
 
-        public int HealthMax { get; set; } = 100;
+        public int HealthMax { get; set; }
 
         public int Gold { get; set; }
 
 
         public int WeaponDamageLow { get; set; }
         public int WeaponDamageHigh { get; set; }
-
         public int WeaponDamage { get; set; }
 
 
 
 
         public string WeaponName { get; set; }
-        //public int WeaponDmg { get; set; }
 
 
 
-        // add inventory here
+        // add inventory here ??
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrialByCombat.Monsters
 {
-    class Goblin : Monster
+    internal class Goblin : Monster
     {
         public Goblin()
         {

@@ -23,14 +23,13 @@ namespace TrialByCombat
 
         public static void Monster(Monster monster) //todo needs looked into, a better way - add to list maybe
         {
-            int _monster = random.Next(1, 4);
+            int _monster = random.Next(1, 5);
             switch (_monster)
             {
                 case 1:
                     Goblin goblin = new Goblin();
                     monster.Name = goblin.Name;
-                    monster.HealthMax = random.Next(goblin.HealthLow, goblin.HealthHigh);
-                    monster.Health = goblin.HealthMax;
+                    monster.HealthMax = monster.Health = random.Next(goblin.HealthLow, goblin.HealthHigh);
                     monster.WeaponDamageLow = goblin.WeaponDamageLow;
                     monster.WeaponDamageHigh = goblin.WeaponDamageHigh;
                     monster.Gold = goblin.Gold;
@@ -38,8 +37,7 @@ namespace TrialByCombat
                 case 2:
                     Rat rat = new Rat();
                     monster.Name = rat.Name;
-                    monster.HealthMax = random.Next(rat.HealthLow, rat.HealthHigh);
-                    monster.Health = rat.HealthMax;
+                    monster.HealthMax = monster.Health = random.Next(rat.HealthLow, rat.HealthHigh);
                     monster.WeaponDamageLow = rat.WeaponDamageLow;
                     monster.WeaponDamageHigh = rat.WeaponDamageHigh;
                     monster.Gold = rat.Gold;
@@ -47,11 +45,18 @@ namespace TrialByCombat
                 case 3:
                     Zombie zombie = new Zombie();
                     monster.Name = zombie.Name;
-                    monster.HealthMax = random.Next(zombie.HealthLow, zombie.HealthHigh); //random range for Health
-                    monster.Health = monster.HealthMax;
+                    monster.HealthMax = monster.Health = random.Next(zombie.HealthLow, zombie.HealthHigh);
                     monster.WeaponDamageLow = zombie.WeaponDamageLow;
                     monster.WeaponDamageHigh = zombie.WeaponDamageHigh;
                     monster.Gold = zombie.Gold;
+                    break;
+                case 4:
+                    Skeleton skeleton = new Skeleton();
+                    monster.Name = skeleton.Name;
+                    monster.HealthMax = monster.Health = random.Next(skeleton.HealthLow, skeleton.HealthHigh);
+                    monster.WeaponDamageLow = skeleton.WeaponDamageLow;
+                    monster.WeaponDamageHigh = skeleton.WeaponDamageHigh;
+                    monster.Gold = skeleton.Gold;
                     break;
 
             }

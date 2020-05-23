@@ -61,7 +61,7 @@ namespace TrialByCombat
                 Console.ReadKey();
 
                 player.Health = 100;
-                Program.StartGame(player);
+                Program.StartGame(player, monster);
 
             }
         }

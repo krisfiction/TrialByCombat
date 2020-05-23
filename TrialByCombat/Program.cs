@@ -11,6 +11,11 @@ namespace TrialByCombat
         {
             Player player = new Player();
 
+            player.HealthMax = 100;
+            player.Health = 100;
+
+            Monster monster = new Monster();
+
 
             Inventory InventoryList = new Inventory();
             InventoryList.Initialize();
@@ -46,7 +51,7 @@ namespace TrialByCombat
 
 
 
-            StartGame(player);
+            StartGame(player, monster);
            
 
             bool keepPlaying = true;
@@ -58,7 +63,7 @@ namespace TrialByCombat
                 if (bInput == ConsoleKey.Y)
                 {
                     Console.Clear(); //may need moved
-                    StartGame(player);
+                    StartGame(player, monster);
                 }
                 else
                     keepPlaying = false;
@@ -72,9 +77,9 @@ namespace TrialByCombat
         }
 
 
-        public static void StartGame(Player player)
+        public static void StartGame(Player player, Monster monster)
         {
-            Monster monster = new Monster();
+            //Monster monster = new Monster();
             // monster.GetMonster();
             Generate.Monster(monster);
 
