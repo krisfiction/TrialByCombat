@@ -97,61 +97,37 @@ namespace TrialByCombat
                 Console.WriteLine("Inventory:");
                 Console.WriteLine();
 
-                int i = 0;
-                do
+                int _lineNumber = 0;
+                foreach (var Inventory in Inventories)
                 {
-
-
-                    //todo fix display format to remove " " when there is no prefix
-
-                    if ((Inventories[i]._type == "Weapon") && (Inventories[i]._prefixStat == "Damage Done"))
+                    if (Inventory._type == "Weapon" && Inventory._prefixStat == "Damage Done")
                     {
-                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName + " +" + Inventories[i]._prefixValue + " Type: " + Inventories[i]._type + " Damage: " +  (Inventories[i]._damageLow + Inventories[i]._prefixValue) + "-" + (Inventories[i]._damageHigh + Inventories[i]._prefixValue));
+                        Console.WriteLine($"{_lineNumber, 2}) {Inventory._type, -8}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName , -35}{"+", -2}{Inventory._prefixValue, -3}{"Damage:", 8} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
                     }
-                    else if (Inventories[i]._type == "Weapon")
+                    else if ( Inventory._type == "Weapon")
                     {
-                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName + " Type: " + Inventories[i]._type + " Damage: " + Inventories[i]._damageLow + "-" + Inventories[i]._damageHigh);
+                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-8}{Inventory._name + " " + Inventory._suffixName,-35}{"", 5}{"Damage:", 8} {Inventory._damageLow}-{Inventory._damageHigh}");
                     }
 
-
-                    if (Inventories[i]._type == "Armor")
+                    if (Inventory._type == "Armor" && Inventory._prefixStat == "Armor Class")
                     {
-                        Console.WriteLine(i + ") " + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName);
-
-                        //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10} {Inventories[i]._prefixName + " " + Inventories[i]._name + " of the " + Inventories[i]._suffixName,-40}{"Armor Class:",-11} {Inventories[i]._armorClass,2}     {"Gold:",-5} {Inventories[i]._gold,5}");
-
-
-                        //todo better formating for display
-                        //todo two lines
-                        //todo 1) CHEST     Godly Rags of The Whale
-                        //todo         Armor: 6     Health: 20          Gold: 25
-                        //todo or
-                        //todo 1) CHEST     Godly Rags of the Whale     AC: 6     HP: 20     G: 25
-                        // Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}, {Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40} {"Armor Class:",-11} {Inventories[i]._armorClass,2}");
-                        //Console.WriteLine($"{Inventories[i]._prefixStat, 10}: {Inventories[i]._prefixValue, 4}, {Inventories[i]._suffixStat,10}: {Inventories[i]._suffixValue,4}  {"Gold:",-5} {Inventories[i]._gold,5}");
-
-
-                        //if (Inventories[i]._prefixStat == "Armor Class") //add prefix armor to base armor
-                        //{
-                        //    //int ac = (Inventories[i]._armorClass + Inventories[i]._prefixValue);
-                        //    //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}{Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40} {"Armor Class:",-11} {ac,2}");
-                        //    //Console.WriteLine($"{Inventories[i]._suffixStat,10}: {Inventories[i]._suffixValue,4}  {"Gold:",-5} {Inventories[i]._gold,5}");
-
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine(i + ")**" + Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName);
-                        //    //todo need formating
-                        // //Console.WriteLine($"{i,2}) {Inventories[i]._slot,-10}, {Inventories[i]._prefixName + " " + Inventories[i]._name + " " + Inventories[i]._suffixName,-40} {"Armor Class:",-11} {Inventories[i]._armorClass,2}");
-
-                        //}
-
+                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-8}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-35}");
                     }
-                    
+                    else if (Inventory._type == "Armor")
+                    {
+                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-8}{Inventory._name + " " + Inventory._suffixName,-35}");
+                    }
 
-                    i++;
-                } while (i < Inventories.Count);
+                    _lineNumber++;
+                }
 
+                //todo better formating for display
+                //todo two lines
+                //todo 1) CHEST     Godly Rags of The Whale
+                //todo         Armor: 6     Health: 20          Gold: 25
+                //todo or
+                //todo 1) CHEST     Godly Rags of the Whale     AC: 6     HP: 20     G: 25
+                        
 
 
                 Menu(player);

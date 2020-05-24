@@ -22,7 +22,7 @@ namespace TrialByCombat.Scrolls
                 monster.Health -= Convert.ToInt32(monster.Health * 1.10); // monster hp + 10%
 
                 Console.Clear();
-                Console.WriteLine("you have read a Death Scroll, you did " + (monster.Health - oldHP) + " points of damage");
+                Console.WriteLine("you have read a Death Scroll, you did " + Convert.ToInt32(oldHP * 1.10) + " points of damage");
                 Console.WriteLine();
             }
             else

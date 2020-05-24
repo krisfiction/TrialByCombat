@@ -5,14 +5,15 @@ using System.Collections.Generic;
 
 namespace TrialByCombat
 {
-    static class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Player player = new Player();
-
-            player.HealthMax = 100;
-            player.Health = 100;
+            Player player = new Player
+            {
+                HealthMax = 100,
+                Health = 100
+            };
 
             Monster monster = new Monster();
 
@@ -122,23 +123,31 @@ namespace TrialByCombat
                     }
                 }
                 if (aInput == ConsoleKey.A)
+                {
                     combat.Start(player, monster);
+                }
                 if (aInput == ConsoleKey.H)
+                {
                     HealthPotion.Cast(player);
+                }
                 if (aInput == ConsoleKey.S)
                 {
                     Scroll.MagicShield(player);
                     combat.MonsterAttack(player, monster); // attack of opportunity ??
                 }
                 if (aInput == ConsoleKey.C)
+                {
                     CharacterSheet.Display(player);
+                }
                 if (aInput == ConsoleKey.D)
                 {
                     Scroll.Death(monster);
                     combat.MonsterAttack(player, monster); // attack of opportunity ?? - may need removed - monster should be dead so it is redundant
                 }
                 if (aInput == ConsoleKey.I)
+                {
                     Inventory.Display(player);
+                }
             }
 
             Console.WriteLine("you have slain the " + monster.Name);
