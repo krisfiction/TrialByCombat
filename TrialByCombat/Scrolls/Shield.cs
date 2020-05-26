@@ -12,16 +12,18 @@ namespace TrialByCombat.Scrolls
             {
                 MagicShieldScrollCount -= 1;
 
-                player.Shield += 50;
+                player.Shield = 50;
                 Console.Clear();
                 Console.WriteLine("you read a Magic Shield scroll, currently protecting you from " + player.Shield + " damage");
                 Console.WriteLine();
             }
             else
             {
+                player.Shield = 0;
                 Console.Clear();
                 Console.WriteLine("you have no Magic Shield Scrolls available");
                 Console.WriteLine();
+               
             }
         }
     }

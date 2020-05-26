@@ -98,7 +98,7 @@ namespace TrialByCombat
 
 
 
-            Combat combat = new Combat();
+ //          Combat combat = new Combat();
 
 
 
@@ -131,7 +131,7 @@ namespace TrialByCombat
                 }
                 if (aInput == ConsoleKey.A)
                 {
-                    combat.Start(player, monster);
+                    Combat.Start(player, monster);
                 }
                 if (aInput == ConsoleKey.H)
                 {
@@ -140,7 +140,7 @@ namespace TrialByCombat
                 if (aInput == ConsoleKey.S)
                 {
                     Scroll.MagicShield(player);
-                    combat.MonsterAttack(player, monster); // attack of opportunity ??
+                    Combat.MonsterAttack(player, monster); // attack of opportunity ??
                 }
                 if (aInput == ConsoleKey.C)
                 {
@@ -149,7 +149,7 @@ namespace TrialByCombat
                 if (aInput == ConsoleKey.D)
                 {
                     Scroll.Death(monster);
-                    combat.MonsterAttack(player, monster); // attack of opportunity ?? - may need removed - monster should be dead so it is redundant
+                    Combat.MonsterAttack(player, monster); // attack of opportunity ?? - may need removed - monster should be dead so it is redundant
                 }
                 if (aInput == ConsoleKey.I)
                 {

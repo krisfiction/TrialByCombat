@@ -241,6 +241,9 @@ namespace TrialByCombat
         // temp maybe ??
         public static void EquipStarterWeapon(Player player)
         {
+            System.Threading.Thread.Sleep(1000); //test to see if calling before weapon is created and causing a crash 
+
+
             if (Inventories[0]._prefixStat == "Damage Done")
             {
                 player.WeaponName = Inventories[0]._prefixName + " " + Inventories[0]._name + " " + Inventories[0]._suffixName + " +" + Inventories[0]._prefixValue;
