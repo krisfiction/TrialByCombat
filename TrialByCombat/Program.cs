@@ -31,6 +31,9 @@ namespace TrialByCombat
             Inventory.EquipStarterWeapon(player);
 
 
+            Disclaimer();
+
+
             Console.WriteLine("Welcome to the Trial By Combat! How long will you survive?");
             Console.WriteLine();
             Console.WriteLine("What is your name?");
@@ -39,7 +42,8 @@ namespace TrialByCombat
 
 
 
-            //maybe lower item count and use as random inventory to choose weapon and gear
+            //maybe lower item count and use as random inventory to choose weapon and gear when game starts
+            //move to StarterGear() ??
             // testing
             int f = 0;
             do
@@ -50,6 +54,7 @@ namespace TrialByCombat
             } while (f < 10);
 
 
+           
 
 
             StartGame(player, monster);
@@ -67,9 +72,11 @@ namespace TrialByCombat
                     StartGame(player, monster);
                 }
                 else
+                {
                     keepPlaying = false;
+                }
 
-            } while (keepPlaying == true);
+            } while (keepPlaying); // = true
 
 
             //to keep console alive
@@ -83,7 +90,7 @@ namespace TrialByCombat
             //Monster monster = new Monster();
             // monster.GetMonster();
             Generate.Monster(monster);
-
+            
 
             Console.WriteLine("You see a " + monster.Name);
 
@@ -153,6 +160,20 @@ namespace TrialByCombat
             Console.WriteLine("you have slain the " + monster.Name);
             Loot.Roll(player, monster);
             //Generate.Armor();
+        }
+
+        static void Disclaimer()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine(("").PadRight(80, '*'));
+            Console.WriteLine($"{"* game not complete", -79}{"*",-1}");
+            Console.WriteLine($"{"* there is no game balance between player and monsters!", -79}{"*", -1}");
+            Console.WriteLine($"{"*",-79}{"*",-1}");
+            Console.WriteLine($"{"* it may crash as any moment",-79}{"*",-1}");
+            Console.WriteLine(("").PadRight(80, '*'));
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

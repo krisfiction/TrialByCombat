@@ -102,20 +102,20 @@ namespace TrialByCombat
                 {
                     if (Inventory._type == "Weapon" && Inventory._prefixStat == "Damage Done")
                     {
-                        Console.WriteLine($"{_lineNumber, 2}) {Inventory._type, -8}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName , -35}{"+", -2}{Inventory._prefixValue, -3}{"Damage:", 8} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
+                        Console.WriteLine($"{_lineNumber, 2}) {Inventory._type, -10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName , -40}{"+", -2}{Inventory._prefixValue, -3}{"Damage:", 8} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
                     }
                     else if ( Inventory._type == "Weapon")
                     {
-                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-8}{Inventory._name + " " + Inventory._suffixName,-35}{"", 5}{"Damage:", 8} {Inventory._damageLow}-{Inventory._damageHigh}");
+                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"", 5}{"Damage:", 8} {Inventory._damageLow}-{Inventory._damageHigh}");
                     }
 
                     if (Inventory._type == "Armor" && Inventory._prefixStat == "Armor Class")
                     {
-                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-8}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-35}");
+                        Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ", 14}{Inventory._armorClass}");
                     }
                     else if (Inventory._type == "Armor")
                     {
-                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-8}{Inventory._name + " " + Inventory._suffixName,-35}");
+                        Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ", 14}{Inventory._armorClass}");
                     }
 
                     _lineNumber++;
@@ -150,7 +150,7 @@ namespace TrialByCombat
         public static void Menu(Player player)
         {
             Console.WriteLine();
-            Console.WriteLine("equip what weapon? (gear not yet implemented)");
+            Console.WriteLine("What would you like to wear / wield?");
             var sInput = Console.ReadLine();
 
             if (Int32.TryParse(sInput, out int _number))
@@ -159,20 +159,74 @@ namespace TrialByCombat
                 {
                     Console.WriteLine("Invalid Number");
                 }
-                else //todo check what type of item it is and equip to the right slot - everything is currently equipped as a weapon
+                else
                 {
-                   if (Inventories[_number]._prefixStat == "Damage Done")
+                    if (Inventories[_number]._type == "Weapon")
                     {
-                        player.WeaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName + " +" + Inventories[_number]._prefixValue;
-                        player.WeaponDamageLow = Inventories[_number]._damageLow + Inventories[_number]._prefixValue;
-                        player.WeaponDamageHigh = Inventories[_number]._damageHigh + Inventories[_number]._prefixValue;
+                        if (Inventories[_number]._prefixStat == "Damage Done")
+                        {
+                            player.WeaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName + " +" + Inventories[_number]._prefixValue;
+                            player.WeaponDamageLow = Inventories[_number]._damageLow + Inventories[_number]._prefixValue;
+                            player.WeaponDamageHigh = Inventories[_number]._damageHigh + Inventories[_number]._prefixValue;
+                        }
+                        else
+                        {
+                            player.WeaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                            player.WeaponDamageLow = Inventories[_number]._damageLow;
+                            player.WeaponDamageHigh = Inventories[_number]._damageHigh;
+                        }
                     }
-                    else
+                    else if (Inventories[_number]._type == "Armor")
                     {
-                        player.WeaponName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                        player.WeaponDamageLow = Inventories[_number]._damageLow;
-                        player.WeaponDamageHigh = Inventories[_number]._damageHigh;
+                        switch (Inventories[_number]._slot)
+                        {
+                            case "Head":
+                                Console.WriteLine("you choose Head");
+                                player.HeadName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.HeadArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Shoulders":
+                                player.ShouldersName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.ShouldersArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Arms":
+                                player.ArmsName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.ArmsArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Hands":
+                                player.HandsName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.HandsArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Chest":
+                                player.ChestName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.ChestArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Waist":
+                                player.WaistName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.WaistArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Legs":
+                                player.LegsName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.LegsArmorBonus = Inventories[_number]._armorClass;
+                                break;
+
+                            case "Feet":
+                                player.FeetName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
+                                player.FeetArmorBonus = Inventories[_number]._armorClass;
+                                break;
+                        }
+
                     }
+
+                    //todo display what item you chose to equip / wield
+                    //todo check if item is already in chosen slot
+                    //todo if item alreadys exists, remove item back to inventory
 
                     Inventories.RemoveAt(_number);
                 }

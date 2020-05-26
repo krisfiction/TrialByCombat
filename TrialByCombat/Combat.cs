@@ -68,23 +68,40 @@ namespace TrialByCombat
 
         public void MonsterAttack(Player player, Monster monster)
         {
+            //todo add armor into damage calculation
+            // damageMultiplier = damage / (damage + armor)
+            // finalDamage = damage * damageMultiplier
+            monster.WeaponDamage = random.Next(monster.WeaponDamageLow, monster.WeaponDamageHigh);
+
+           // int _damageVsArmor = monster.WeaponDamage / (monster.WeaponDamage + player.AC);
+           // int _damage = monster.WeaponDamage * _damageVsArmor;
+
+            //int _shieldOverage = 0;
+
             if (monster.Health > 0)
             {
-                monster.WeaponDamage = random.Next(monster.WeaponDamageLow, monster.WeaponDamageHigh);
-
-                Console.WriteLine("The " + monster.Name + " strikes back doing " + monster.WeaponDamage + " damage");
-
                 if (player.Shield > monster.WeaponDamage)
                 {
                     player.Shield -= monster.WeaponDamage;
+                    Console.WriteLine("The " + monster.Name + " strikes back doing " + monster.WeaponDamage + " damage");
+                    Console.WriteLine("But your magic shield absorbed the damage!");
                 }
                 else
-                if (monster.WeaponDamage > (player.ChestArmorBonus + player.HeadArmorBonus))
                 {
-                    player.Health -= ((monster.WeaponDamage -= player.Shield) - (player.ChestArmorBonus + player.HeadArmorBonus));
+                    //Console.WriteLine("_damage: " + _damage);
+                    //Console.WriteLine("_damageVsArmor: " + _damageVsArmor);
 
+                    //_shieldOverage = monster.WeaponDamage - player.Shield;
+
+                    player.Health -= monster.WeaponDamage - player.Shield;
                     player.Shield = 0;
+
+
+                    Console.WriteLine("The " + monster.Name + " strikes back doing " + monster.WeaponDamage + " damage");
+
                 }
+
+
             }
         }
     }

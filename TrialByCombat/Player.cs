@@ -23,22 +23,45 @@ namespace TrialByCombat
 
         public int AC { get; set; } = 10;
 
-       
 
         public int STR { get; set; } = 10;
         public int INT { get; set; } = 10;
 
 
-        public string HeadName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
-        public int HeadCost { get; set; } = 0;
-        public int HeadWeight { get; set; } = 0;
-        public int HeadArmorBonus;// { get; set; } = 0;
+        public string HeadName { get; set; } // not currently used - looking into how to handle inventory and gear
+        public int HeadCost { get; set; }
+        public int HeadWeight { get; set; }
+        public int HeadArmorBonus { get; set; }
+
+        public string ShouldersName { get; set; }
+        public int ShouldersArmorBonus { get; set; }
+
+
+        public string ArmsName { get; set; }
+        public int ArmsArmorBonus { get; set; }
+
+        public string HandsName { get; set; }
+        public int HandsArmorBonus { get; set; }
 
 
         public string ChestName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
         public int ChestCost { get; set; } = 0;
         public int ChestWeight { get; set; } = 0;
         public int ChestArmorBonus { get; set; } = 0;
+
+
+        public string WaistName { get; set; }
+        public int WaistArmorBonus { get; set; }
+
+
+        public string LegsName { get; set; }
+        public int LegsArmorBonus { get; set; }
+
+        public string FeetName { get; set; }
+        public int FeetArmorBonus { get; set; }
+
+
+
 
         public int Shield { get; set; } = 0;
         /* 

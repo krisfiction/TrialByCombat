@@ -188,14 +188,14 @@ namespace TrialByCombat
         {
             int _slot = random.Next(0, 8);
             string[] gearSlot = new string[8];
-            gearSlot[0] = "helmet"; //head
-            gearSlot[1] = "shoulders";
-            gearSlot[2] = "chest";
-            gearSlot[3] = "belt";
-            gearSlot[4] = "bracer"; // arms
-            gearSlot[5] = "gloves"; // hands
-            gearSlot[6] = "pants"; // legs
-            gearSlot[7] = "boots"; // feet
+            gearSlot[0] = "Head"; //helmet
+            gearSlot[1] = "Shoulders";
+            gearSlot[2] = "Chest";
+            gearSlot[3] = "Waist"; // belt
+            gearSlot[4] = "Arms"; // bracer
+            gearSlot[5] = "Hands"; // gloves
+            gearSlot[6] = "Legs"; // pants
+            gearSlot[7] = "Feet"; // boots
 
             string prefixName;
             int prefixValue;

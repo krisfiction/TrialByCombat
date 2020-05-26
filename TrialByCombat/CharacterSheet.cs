@@ -15,7 +15,7 @@ namespace TrialByCombat
             Console.WriteLine();
             Console.WriteLine("Name: " + player.Name);
             Console.WriteLine("Health: " + player.Health + "/" + player.HealthMax);
-            Console.WriteLine("Armor Bonus: " + (player.HeadArmorBonus + player.ChestArmorBonus));
+            Console.WriteLine("Armor Bonus: " + (player.AC + player.HeadArmorBonus + player.ShouldersArmorBonus + player.ArmsArmorBonus + player.HandsArmorBonus + player.ChestArmorBonus + player.WaistArmorBonus + player.LegsArmorBonus + player.FeetArmorBonus));
             Console.WriteLine();
             Console.WriteLine("Gold: " + player.Gold);
             Console.WriteLine();
@@ -23,7 +23,13 @@ namespace TrialByCombat
             Console.WriteLine();
             Console.WriteLine("Equipment:");
             Console.WriteLine("Head: " + player.HeadName + " +" + player.HeadArmorBonus);
+            Console.WriteLine("Shoulders: " + player.ShouldersName + " +" + player.ShouldersArmorBonus);
+            Console.WriteLine("Arms: " + player.ArmsName + " +" + player.ArmsArmorBonus);
+            Console.WriteLine("Hands: " + player.HandsName + " +" + player.HandsArmorBonus);
             Console.WriteLine("Chest: " + player.ChestName + " +" + player.ChestArmorBonus);
+            Console.WriteLine("Waist: " + player.WaistName + " +" + player.WaistArmorBonus);
+            Console.WriteLine("Legs: " + player.LegsName + " +" + player.LegsArmorBonus);
+            Console.WriteLine("Feet: " + player.FeetName + " +" + player.FeetArmorBonus);
             Console.WriteLine();
             Console.WriteLine("Supplies:");
             Console.WriteLine("Health Potions: " + HealthPotion.Quantity);
