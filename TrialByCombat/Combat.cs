@@ -40,8 +40,6 @@ namespace TrialByCombat
             }
 
 
-           
-
 
             //game over code - probably needs moved or a seperate function
 
@@ -68,15 +66,11 @@ namespace TrialByCombat
 
         public static void MonsterAttack(Player player, Monster monster)
         {
-            //todo add armor into damage calculation
+            //x add armor into damage calculation
             // damageMultiplier = damage / (damage + armor)
             // finalDamage = damage * damageMultiplier
+
             monster.WeaponDamage = random.Next(monster.WeaponDamageLow, monster.WeaponDamageHigh);
-
-           // int _damageVsArmor = monster.WeaponDamage / (monster.WeaponDamage + player.AC);
-           // int _damage = monster.WeaponDamage * _damageVsArmor;
-
-            //int _shieldOverage = 0;
 
             if (monster.Health > 0)
             {
@@ -88,13 +82,6 @@ namespace TrialByCombat
                 }
                 else
                 {
-                    //Console.WriteLine("_damage: " + _damage);
-                    //Console.WriteLine("_damageVsArmor: " + _damageVsArmor);
-
-                    //_shieldOverage = monster.WeaponDamage - player.Shield;
-
-                    //player.Health -= monster.WeaponDamage - player.Shield;
-
                     //Console.WriteLine("weapon damage: " + monster.WeaponDamage);
                     int premultiplier = monster.WeaponDamage + player.AC;
                     //Console.WriteLine("pre: " + premultiplier);
@@ -106,12 +93,10 @@ namespace TrialByCombat
 
 
                     Console.WriteLine("The " + monster.Name + " strikes back doing " + monster.WeaponDamage + " damage");
-                    Console.WriteLine("Your armor absorbs " + (int)Math.Round((monster.WeaponDamage - total), 0) + " points of damage and you take " + (int)Math.Round(total, 0) + " of damage");
+                    Console.WriteLine("Your armor of " + player.AC + " absorbs " + (int)Math.Round(monster.WeaponDamage - total, 0) + " points of damage and you take " + (int)Math.Round(total, 0) + " damage");
 
 
-                    player.Health -= (int)Math.Round(total, 0);
-
-                    //player.Health -= monster.WeaponDamage - player.Shield;
+                    player.Health -= (int)Math.Round(total, 0) - player.Shield;
                     player.Shield = 0;
                 }
 

@@ -12,7 +12,9 @@ namespace TrialByCombat
             Player player = new Player
             {
                 HealthMax = 100,
-                Health = 100
+                Health = 100,
+                AC = 10
+
             };
 
             Monster monster = new Monster();

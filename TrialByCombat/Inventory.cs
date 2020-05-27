@@ -228,6 +228,10 @@ namespace TrialByCombat
                     //todo check if item is already in chosen slot
                     //todo if item alreadys exists, remove item back to inventory
 
+                    //update player stats - needs moved
+                    player.AC = player.ACbase + player.HandsArmorBonus + player.ShouldersArmorBonus + player.ArmsArmorBonus + player.HandsArmorBonus + player.ChestArmorBonus + player.WaistArmorBonus + player.LegsArmorBonus + player.FeetArmorBonus;
+
+                    //remove item from inventory
                     Inventories.RemoveAt(_number);
                 }
             }

@@ -21,7 +21,11 @@ namespace TrialByCombat
 
         public int MANA { get; set; } = 10;
 
-        public int AC { get; set; } = 10;
+
+        public int ACbase { get; set; } = 10;
+        public int AC { get; set; }
+
+
 
 
         public int STR { get; set; } = 10;

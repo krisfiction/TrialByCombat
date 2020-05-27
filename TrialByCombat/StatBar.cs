@@ -14,7 +14,7 @@ namespace TrialByCombat
             //this needs work if it is going to be used
             //Console.WriteLine("{0,-10}{1,-4}{2,-5}{3,-15}{4,-5}{5,20}{6,5}", Player.Name, "HP:", Player.HP, "Magic Shield:", Player.Shield, "Armor Bonus:", (Player.ChestArmorBonus + Player.HeadArmorBonus));
             
-            Console.WriteLine(player.Name + "\tHP " + player.Health + "/" + player.HealthMax + "\tMagic Shield: " + player.Shield + "\t\tArmor Bonus: " + (player.ChestArmorBonus + player.HeadArmorBonus));
+            Console.WriteLine(player.Name + "\tHP " + player.Health + "/" + player.HealthMax + "\tMagic Shield: " + player.Shield + "\t\tArmor Bonus: " + player.AC);
             Console.WriteLine(monster.Name + "\tHP " + monster.Health + "/" + monster.HealthMax);
             //Console.WriteLine("********************************************************************************");
             Console.WriteLine(("").PadRight(80, '*'));
