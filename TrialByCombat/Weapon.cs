@@ -17,8 +17,8 @@ namespace TrialByCombat
         //todo AddtoPLayer(); -- should be in inventory display() ??
 
 
-        }
     }
 }
+
 
 
