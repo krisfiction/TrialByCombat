@@ -112,11 +112,11 @@ namespace TrialByCombat
                     {
                         if (Inventory._type == "Weapon" && Inventory._prefixStat == "Damage Done")
                         {
-                            Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"+",-2}{Inventory._prefixValue,-3}{"Damage:",8} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"+",-2}{Inventory._prefixValue,-4}{"Damage:",9} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
                         }
                         else if (Inventory._type == "Weapon")
                         {
-                            Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"",5}{"Damage:",8} {Inventory._damageLow}-{Inventory._damageHigh}");
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"",6}{"Damage:",9} {Inventory._damageLow}-{Inventory._damageHigh}");
                         }
                     }
                 //    _lineNumber++;
@@ -134,11 +134,11 @@ namespace TrialByCombat
                     {
                         if (Inventory._type == "Armor" && Inventory._prefixStat == "Armor Class")
                         {
-                            Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ",14}{Inventory._armorClass}");
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"+",-2}{Inventory._prefixValue,-4}{"Armor Base: ",10}{Inventory._armorClass}{"("}{Inventory._armorClass + Inventory._prefixValue}{")"}");
                         }
                         else if (Inventory._type == "Armor")
                         {
-                            Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ",14}{Inventory._armorClass}");
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"",6}{"Armor: ",10}{Inventory._armorClass}");
                         }
                     }
 
@@ -206,46 +206,46 @@ namespace TrialByCombat
                         switch (Inventories[_number]._slot)
                         {
                             case "Head":
-                                Console.WriteLine("you choose Head");
                                 player.HeadName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.HeadArmorBonus = Inventories[_number]._armorClass;
+                                player.HeadArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Shoulders":
                                 player.ShouldersName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.ShouldersArmorBonus = Inventories[_number]._armorClass;
+                                player.ShouldersArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Arms":
                                 player.ArmsName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.ArmsArmorBonus = Inventories[_number]._armorClass;
+                                player.ArmsArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Hands":
                                 player.HandsName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.HandsArmorBonus = Inventories[_number]._armorClass;
+                                player.HandsArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Chest":
                                 player.ChestName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.ChestArmorBonus = Inventories[_number]._armorClass;
+                                player.ChestArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Waist":
                                 player.WaistName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.WaistArmorBonus = Inventories[_number]._armorClass;
+                                player.WaistArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Legs":
                                 player.LegsName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.LegsArmorBonus = Inventories[_number]._armorClass;
+                                player.LegsArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
 
                             case "Feet":
                                 player.FeetName = Inventories[_number]._prefixName + " " + Inventories[_number]._name + " " + Inventories[_number]._suffixName;
-                                player.FeetArmorBonus = Inventories[_number]._armorClass;
+                                player.FeetArmorBonus = Inventories[_number]._armorClass + Inventories[_number]._prefixValue;
                                 break;
                         }
+                    
 
                     }
 

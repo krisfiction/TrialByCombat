@@ -15,7 +15,7 @@ namespace TrialByCombat
             Console.WriteLine();
             Console.WriteLine("Name: " + player.Name);
             Console.WriteLine("Health: " + player.Health + "/" + player.HealthMax);
-            Console.WriteLine("Armor Bonus: " + (player.AC + player.HeadArmorBonus + player.ShouldersArmorBonus + player.ArmsArmorBonus + player.HandsArmorBonus + player.ChestArmorBonus + player.WaistArmorBonus + player.LegsArmorBonus + player.FeetArmorBonus));
+            Console.WriteLine("Armor Bonus: " + player.AC);// + player.HeadArmorBonus + player.ShouldersArmorBonus + player.ArmsArmorBonus + player.HandsArmorBonus + player.ChestArmorBonus + player.WaistArmorBonus + player.LegsArmorBonus + player.FeetArmorBonus));
             Console.WriteLine();
             Console.WriteLine("Gold: " + player.Gold);
             Console.WriteLine();

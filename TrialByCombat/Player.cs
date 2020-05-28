@@ -15,8 +15,8 @@ namespace TrialByCombat
 
 
         public int ACbase { get; set; }
-        public int AC { get; set; }
-
+        public int AC { get; set; } //ACbase + HeadArmorBonus + ShouldersArmorBonus + player.ArmsArmorBonus + player.HandsArmorBonus + player.ChestArmorBonus + player.WaistArmorBonus + player.LegsArmorBonus + player.FeetArmorBonus;
+         
 
 
 
