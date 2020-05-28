@@ -23,7 +23,7 @@ namespace TrialByCombat
 
         public static void Monster(Monster monster) //todo needs looked into, a better way - add to list maybe
         {
-            int _monster = random.Next(1, 5);
+            int _monster = random.Next(1, 7);
             switch (_monster)
             {
                 case 1:
@@ -57,6 +57,22 @@ namespace TrialByCombat
                     monster.WeaponDamageLow = skeleton.WeaponDamageLow;
                     monster.WeaponDamageHigh = skeleton.WeaponDamageHigh;
                     monster.Gold = skeleton.Gold;
+                    break;
+                case 5:
+                    Troll troll = new Troll();
+                    monster.Name = troll.Name;
+                    monster.HealthMax = monster.Health = random.Next(troll.HealthLow, troll.HealthHigh);
+                    monster.WeaponDamageLow = troll.WeaponDamageLow;
+                    monster.WeaponDamageHigh = troll.WeaponDamageHigh;
+                    monster.Gold = troll.Gold;
+                    break;
+                case 6:
+                    Spirit spirit = new Spirit();
+                    monster.Name = spirit.Name;
+                    monster.HealthMax = monster.Health = random.Next(spirit.HealthLow, spirit.HealthHigh);
+                    monster.WeaponDamageLow = spirit.WeaponDamageLow;
+                    monster.WeaponDamageHigh = spirit.WeaponDamageHigh;
+                    monster.Gold = spirit.Gold;
                     break;
 
             }

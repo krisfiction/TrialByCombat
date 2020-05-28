@@ -11,28 +11,20 @@ namespace TrialByCombat
 {
     public class Player : Characters
     {
+        public int MANA { get; set; }
 
 
-        //public string Name { get; set; } = "rogue";
-
-        //public int Health { get; set; } = 100;
-
-        //public int Healthmax { get; set; } = 100;
-
-        public int MANA { get; set; } = 10;
-
-
-        public int ACbase { get; set; } = 10;
+        public int ACbase { get; set; }
         public int AC { get; set; }
 
 
 
 
-        public int STR { get; set; } = 10;
-        public int INT { get; set; } = 10;
+        public int STR { get; set; }
+        public int INT { get; set; }
 
 
-        public string HeadName { get; set; } // not currently used - looking into how to handle inventory and gear
+        public string HeadName { get; set; }
         public int HeadCost { get; set; }
         public int HeadWeight { get; set; }
         public int HeadArmorBonus { get; set; }
@@ -48,10 +40,10 @@ namespace TrialByCombat
         public int HandsArmorBonus { get; set; }
 
 
-        public string ChestName { get; set; } = "Cloth"; // not currently used - looking into how to handle inventory and gear
-        public int ChestCost { get; set; } = 0;
-        public int ChestWeight { get; set; } = 0;
-        public int ChestArmorBonus { get; set; } = 0;
+        public string ChestName { get; set; }
+        public int ChestCost { get; set; }
+        public int ChestWeight { get; set; }
+        public int ChestArmorBonus { get; set; }
 
 
         public string WaistName { get; set; }
@@ -68,36 +60,6 @@ namespace TrialByCombat
 
 
         public int Shield { get; set; } = 0;
-        /* 
-         * name
-         * race
-         * class
-         * title
-         * hp
-         * mana / spell power
-         * ac / armor
-         * xp
-         * gold
-         * 
-         * hp regain
-         * mana regain
-         * 
-         * str
-         * con
-         * wis
-         * int
-         * dex
-         * cha
-         * 
-         * luck
-         * 
-         * resist all
-         * 
-         * light radius
-         * 
-         * dmg
-         * hit
-         * defense
-         */
+      
     }
 }
