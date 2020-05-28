@@ -97,28 +97,56 @@ namespace TrialByCombat
                 Console.WriteLine("Inventory:");
                 Console.WriteLine();
 
+                //int _typesOfInventory = 2; // Weapon, Armor
+                bool _WeaponTitle = false;
+                bool _ArmorTitle = false;
+
+               // for (int i = 0; i < _typesOfInventory; i++)
+                //{
                 int _lineNumber = 0;
                 foreach (var Inventory in Inventories)
                 {
-                    if (Inventory._type == "Weapon" && Inventory._prefixStat == "Damage Done")
+                    if (_WeaponTitle == false)
                     {
-                        Console.WriteLine($"{_lineNumber, 2}) {Inventory._type, -10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName , -40}{"+", -2}{Inventory._prefixValue, -3}{"Damage:", 8} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
+                        Console.WriteLine("Weapons:");
+                        _WeaponTitle = true;
                     }
-                    else if ( Inventory._type == "Weapon")
+                    else if (Inventory._type == "Weapon")
                     {
-                        Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"", 5}{"Damage:", 8} {Inventory._damageLow}-{Inventory._damageHigh}");
+                        if (Inventory._type == "Weapon" && Inventory._prefixStat == "Damage Done")
+                        {
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"+",-2}{Inventory._prefixValue,-3}{"Damage:",8} {Inventory._damageLow + Inventory._prefixValue}-{Inventory._damageHigh + Inventory._prefixValue}");
+                        }
+                        else if (Inventory._type == "Weapon")
+                        {
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"",5}{"Damage:",8} {Inventory._damageLow}-{Inventory._damageHigh}");
+                        }
                     }
+                    _lineNumber++;
+                }
 
-                    if (Inventory._type == "Armor" && Inventory._prefixStat == "Armor Class")
+                _lineNumber = 0;
+                foreach (var Inventory in Inventories)
+                {
+                    if (_ArmorTitle == false)
                     {
-                        Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ", 14}{Inventory._armorClass}");
+                        Console.WriteLine("Armor:");
+                        _ArmorTitle = true;
                     }
                     else if (Inventory._type == "Armor")
                     {
-                        Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ", 14}{Inventory._armorClass}");
+                        if (Inventory._type == "Armor" && Inventory._prefixStat == "Armor Class")
+                        {
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._prefixName + " " + Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ",14}{Inventory._armorClass}");
+                        }
+                        else if (Inventory._type == "Armor")
+                        {
+                            Console.WriteLine($"{_lineNumber,2}) {Inventory._slot,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"Armor: ",14}{Inventory._armorClass}");
+                        }
                     }
 
                     _lineNumber++;
+                
                 }
 
                 //todo better formating for display
