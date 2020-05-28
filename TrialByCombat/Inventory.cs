@@ -96,18 +96,19 @@ namespace TrialByCombat
             {
                 Console.WriteLine("Inventory:");
                 Console.WriteLine();
-                bool _WeaponTitle = false;
-                bool _ArmorTitle = false;
+                //bool _WeaponTitle = false;
+                //bool _ArmorTitle = false;
 
                 int _lineNumber = 0;
                 foreach (var Inventory in Inventories)
                 {
-                    if (_WeaponTitle == false)
-                    {
-                        Console.WriteLine("Weapons:");
-                        _WeaponTitle = true;
-                    }
-                    else if (Inventory._type == "Weapon")
+                    //if (_WeaponTitle == false)
+                    //{
+                    //    Console.WriteLine("Weapons:");
+                    //    _WeaponTitle = true;
+                    //    _lineNumber--;
+                    //}
+                    if (Inventory._type == "Weapon")
                     {
                         if (Inventory._type == "Weapon" && Inventory._prefixStat == "Damage Done")
                         {
@@ -118,17 +119,17 @@ namespace TrialByCombat
                             Console.WriteLine($"{_lineNumber,2}) {Inventory._type,-10}{Inventory._name + " " + Inventory._suffixName,-40}{"",5}{"Damage:",8} {Inventory._damageLow}-{Inventory._damageHigh}");
                         }
                     }
-                    _lineNumber++;
-                }
+                //    _lineNumber++;
+                //}
 
-                _lineNumber = 0;
-                foreach (var Inventory in Inventories)
-                {
-                    if (_ArmorTitle == false)
-                    {
-                        Console.WriteLine("Armor:");
-                        _ArmorTitle = true;
-                    }
+                //_lineNumber = 0;
+                //foreach (var Inventory in Inventories)
+                //{
+                //    if (_ArmorTitle == false)
+                //    {
+                //        Console.WriteLine("Armor:");
+                //        _ArmorTitle = true;
+                //    }
                     else if (Inventory._type == "Armor")
                     {
                         if (Inventory._type == "Armor" && Inventory._prefixStat == "Armor Class")
