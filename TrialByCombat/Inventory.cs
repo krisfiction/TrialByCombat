@@ -96,13 +96,9 @@ namespace TrialByCombat
             {
                 Console.WriteLine("Inventory:");
                 Console.WriteLine();
-
-                //int _typesOfInventory = 2; // Weapon, Armor
                 bool _WeaponTitle = false;
                 bool _ArmorTitle = false;
 
-               // for (int i = 0; i < _typesOfInventory; i++)
-                //{
                 int _lineNumber = 0;
                 foreach (var Inventory in Inventories)
                 {
