@@ -20,10 +20,14 @@ namespace TrialByCombat
 
         public string DisplayHealthBar()
         {
-            // maybe a seperate method() such as HealthPercentage() that returns 85%
+            //should display as [********  ] as 80 percent health
+            //should display as [**********] as 100 percent health
+            //should display as [***       ] as 35 percent health
 
-            // (current health / max health) * 100
-            //int _healthPercentage = (int)Math.Round((double)(100 * Health) / HealthMax);
+            // maybe a seperate method() such as HealthPercentage() that returns 85 or 85%
+
+            // (100 * current health) / max health) to get 65 instead of 0.65
+            int _healthPercentage = (int)Math.Round((double)(100 * Health) / HealthMax);
 
             string _barTemp = "";
             int _barCount = 0;
@@ -46,7 +50,7 @@ namespace TrialByCombat
 
             //testing
             //string _healthBar = $"{_healthPercentage} - {_healthTenth} [{_barTemp}]";
-            string _healthBar = $"[{_barTemp}]";
+            string _healthBar = $"{_healthPercentage}% [{_barTemp}]";
 
             return _healthBar;
         }
